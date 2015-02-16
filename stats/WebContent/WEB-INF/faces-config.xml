@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+	<managed-bean>
+		<description>reads users table data</description>
+		<managed-bean-name>readUsers</managed-bean-name>
+		<managed-bean-class>beans.ReadUsers</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>dbconnector</property-name>
+			<property-class>utilities.SQLiteConnectionManager</property-class>
+			<value>#{sqliteconnector}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>userDao</property-name>
+			<property-class>utilities.UserDao</property-class>
+			<value>#{userDao}</value>
+		</managed-property>		
+	</managed-bean>
+	<managed-bean>
+		<description>sqlite db connection manager</description>
+		<managed-bean-name>sqliteconnector</managed-bean-name>
+		<managed-bean-class>utilities.SQLiteConnectionManager</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+    
+    <application>
+		<el-resolver>
+    		    org.springframework.web.jsf.el.SpringBeanFacesELResolver
+		</el-resolver>
+  	</application>
+    
+
+</faces-config>
