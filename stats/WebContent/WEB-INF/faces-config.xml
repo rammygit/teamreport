@@ -8,24 +8,14 @@
 		<description>reads users table data</description>
 		<managed-bean-name>readUsers</managed-bean-name>
 		<managed-bean-class>beans.ReadUsers</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-		<managed-property>
-			<property-name>dbconnector</property-name>
-			<property-class>utilities.SQLiteConnectionManager</property-class>
-			<value>#{sqliteconnector}</value>
-		</managed-property>
+		<managed-bean-scope>session</managed-bean-scope>		
 		<managed-property>
 			<property-name>userDao</property-name>
 			<property-class>utilities.UserDao</property-class>
 			<value>#{userDao}</value>
 		</managed-property>		
 	</managed-bean>
-	<managed-bean>
-		<description>sqlite db connection manager</description>
-		<managed-bean-name>sqliteconnector</managed-bean-name>
-		<managed-bean-class>utilities.SQLiteConnectionManager</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
+	
 	
     
     <application>
