@@ -8,6 +8,7 @@ import utilities.pojo.User;
 
 /**
  * read users session bean. 
+ * TODO: create the get user list from DB and move in the changes to save the user progress details into a new table.
  * @author ramkumarsundarajan
  *
  */
