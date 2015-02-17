@@ -1,7 +1,9 @@
 package beans;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.annotation.PostConstruct;
 
 import utilities.UserDao;
 import utilities.pojo.User;
@@ -23,25 +25,18 @@ public class ReadUsers implements Serializable {
 	
 	private UserDao userDao;
 	
+	private UserProfileBean userProfile;
 	
-	/**
-	 * gets you the list of the user list.
-	 * @return
-	 */
-	public String getUserList() {
+	private List<User> users;
+	
+	@PostConstruct
+	public void loadData(){
+		users = userDao.selectAll();
 		
-		
-		try {
-			User user = (User)userDao.getById(1);
-			System.out.println("printing user dao first name :"+user.getfName() + " last name : "+user.getlName());
-			
-			
-		} catch (Exception e) {
-			System.out.println("printing exception");
-			e.printStackTrace();
-		}
-		return null;
 	}
+	
+	
+	
 
 
 	
@@ -53,6 +48,30 @@ public class ReadUsers implements Serializable {
 
 	public void setUserDao(UserDao userDao) {
 		this.userDao = userDao;
+	}
+
+
+
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+
+
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+
+	public UserProfileBean getUserProfile() {
+		return userProfile;
+	}
+
+
+	public void setUserProfile(UserProfileBean userProfile) {
+		this.userProfile = userProfile;
 	}
 
 }

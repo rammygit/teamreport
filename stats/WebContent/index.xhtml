@@ -1,22 +1,37 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:a="http://java.sun.com/jsf/composite"
-      xmlns:c="http://java.sun.com/jsp/jstl/core">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://java.sun.com/jsf/composite"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
-	<h:head>
+<h:head>
 		stats
 	</h:head>
-	<h:body>
-		<h:form>
-			<h:inputText id="name" value="#{name}"></h:inputText>
-			
-			<h:inputText id="fName" value="#{name}"></h:inputText>
-			<h:commandButton id="submit" value="submit" action="#{readUsers.getUserList}"></h:commandButton>
-			<ui:fragment rendered="#{not empty name}">Hello #{name}</ui:fragment>
-			
-		</h:form>
-	</h:body>
+<h:body>
+	<h:form>
+
+
+		<h:outputText value="User Names: " style="font-weight:bold" />
+
+		<ui:repeat var="user" value="#{readUsers.users}" varStatus="status">
+			<h:commandLink value="#{user.fName}" render="list,form">
+			</h:commandLink>
+			<h:outputText value=" | " />
+		</ui:repeat>
+		<br/>
+		<br/>
+		<h:panelGroup layout="div">
+			<h:outputText value="Team details" style="font-weight:bold" />
+			<h:outputText value="team name" ></h:outputText>
+			<h:outputText value="#{readUsers.}" ></h:outputText>
+
+		</h:panelGroup>
+		
+
+
+
+	</h:form>
+</h:body>
 </html>

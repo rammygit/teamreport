@@ -26,6 +26,8 @@ public abstract class BaseDao {
 	abstract public Object getById(int id) throws Exception;
 
 	abstract Object insert() throws Exception;
+	
+	
 
 
 

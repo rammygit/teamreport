@@ -1,5 +1,9 @@
 package utilities;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
 import utilities.pojo.User;
@@ -30,6 +34,18 @@ public class UserDao extends BaseDao {
 		
 
 		return null;
+	}
+	
+	public List<User> selectAll() {
+
+		String sql = "select * from users";
+		List<User> users = new ArrayList<User>();
+
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+		for (Map<String, Object> row : rows) {			
+			users.add(DaoUtil.userRowMapper(row));
+		}
+		return users;
 	}
 
 	
