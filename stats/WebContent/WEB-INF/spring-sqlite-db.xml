@@ -13,6 +13,8 @@
 	
 	<bean id="userDao" class="utilities.UserDao" parent="baseDao">		
 	</bean>
+	
+	<bean id="masterDataDao" class="utilities.MasterDataDao" parent="baseDao"></bean>
 
 	<bean id="baseDao" class="utilities.BaseDao" abstract="true">
 		<property name="dataSource" ref="sqliteDataSource" />
