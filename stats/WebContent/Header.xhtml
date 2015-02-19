@@ -5,18 +5,21 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
+<h:body>
+
 <ui:composition>
 
 	<h:form id="header_form">
-		<h:commandLink value="add Team" action="addTeam"></h:commandLink>
+		<h:link outcome="userprofile" value="User Profile" />
 		<h:outputText value=" | " />
-		<h:commandLink value="add Project" action="addProject"></h:commandLink>
+		<h:link outcome="addProject" value="Project"/>
 		<h:outputText value=" | " />
-		<h:commandLink value="user profile" action="addUserProfile"></h:commandLink>
+		<h:link outcome="addTeam" value="Team"/>
 		<br />
 		<br />
 	</h:form>
 
 
 </ui:composition>
+</h:body>
 </html>

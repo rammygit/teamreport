@@ -7,10 +7,8 @@
 
 
 <h:body>
-	<h:form id="form1">
-	
-		
-	
+	<ui:include src="/Header.xhtml" />
+	<h:form id="form1">	
 		<h:panelGrid columns="2">
 			<h:outputText value="Enter Project Name"></h:outputText>
 			<h:inputText id="txtProjectName" value="#{addDataBean.project.projectName}"></h:inputText>

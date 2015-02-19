@@ -52,11 +52,24 @@
   <managed-bean-class>utilities.pojo.Project</managed-bean-class>
   <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
+ <managed-bean>
+  <managed-bean-name>navigationBean</managed-bean-name>
+  <managed-bean-class>beans.NavigationBean</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
  <navigation-rule>
-  <from-view-id>/index.xhtml</from-view-id>
+  <from-view-id>*</from-view-id>
   <navigation-case>
    <from-outcome>addTeam</from-outcome>
    <to-view-id>/AddTeam.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>addProject</from-outcome>
+   <to-view-id>/AddProject.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>userprofile</from-outcome>
+   <to-view-id>/AddUserProfile.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
  <application>
