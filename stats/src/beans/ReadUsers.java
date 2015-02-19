@@ -29,6 +29,8 @@ public class ReadUsers implements Serializable {
 	
 	private List<User> users;
 	
+	private String userName;
+	
 	@PostConstruct
 	public void loadData(){
 		users = userDao.selectAll();
@@ -72,6 +74,26 @@ public class ReadUsers implements Serializable {
 
 	public void setUserProfile(UserProfileBean userProfile) {
 		this.userProfile = userProfile;
+	}
+
+
+
+
+
+
+
+	public String getUserName() {
+		return userName;
+	}
+
+
+
+
+
+
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 }

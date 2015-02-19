@@ -7,13 +7,14 @@
 
 <h:body>
 	<ui:include src="/Header.xhtml" />
-	<h:form>
+	<h:form>	
+		
 		<h:panelGrid columns="2">
-			
-
+			<h:outputLabel value="Select the User"></h:outputLabel>
+			<h:selectOneMenu id="selectUsrMenu" value="#{readUsers.userName}">
+				<f:selectItems value="#{readUsers.users}" var="currentUser" itemValue="#{currentUser.userId}" itemLabel="#{currentUser.fName} #{currentUser.lName}"/>
+			</h:selectOneMenu>
 		</h:panelGrid>
-		<h:commandButton id="submitTeamAdd" value="Add Team"
-			action="#{addDataBean.addProject}"></h:commandButton>
 
 	</h:form>
 </h:body>
