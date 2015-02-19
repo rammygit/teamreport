@@ -9,11 +9,5 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#AddTeam.xhtml" PATH="/AddTeam.xhtml"
-  SHAPE="240,33,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#AddTeam.xhtml:0" NAME="item"
-   PATH="/AddTeam.xhtml" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="index::#index.xhtml" NAME="output"
-    PATH="/index.xhtml" TARGET="rules:#index.xhtml" TITLE="index" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
+  SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

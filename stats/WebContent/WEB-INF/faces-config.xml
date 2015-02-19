@@ -36,26 +36,27 @@
    <property-class>utilities.pojo.Team</property-class>
    <value>#{team}</value>
   </managed-property>
+  <managed-property>
+   <property-name>project</property-name>
+   <property-class>utilities.pojo.Project</property-class>
+   <value>#{project}</value>
+  </managed-property>
  </managed-bean>
  <managed-bean>
   <managed-bean-name>team</managed-bean-name>
   <managed-bean-class>utilities.pojo.Team</managed-bean-class>
   <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
+ <managed-bean>
+  <managed-bean-name>project</managed-bean-name>
+  <managed-bean-class>utilities.pojo.Project</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
  <navigation-rule>
-  <display-name>index</display-name>
   <from-view-id>/index.xhtml</from-view-id>
   <navigation-case>
    <from-outcome>addTeam</from-outcome>
    <to-view-id>/AddTeam.xhtml</to-view-id>
-  </navigation-case>
- </navigation-rule>
- <navigation-rule>
-  <display-name>addteam</display-name>
-  <from-view-id>/AddTeam.xhtml</from-view-id>
-  <navigation-case>
-   <from-outcome>index</from-outcome>
-   <to-view-id>/index.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
  <application>

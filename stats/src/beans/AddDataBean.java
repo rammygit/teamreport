@@ -1,8 +1,10 @@
 package beans;
 
 import java.io.Serializable;
+import java.util.List;
 
 import utilities.MasterDataDao;
+import utilities.pojo.Project;
 import utilities.pojo.Team;
 
 /**
@@ -19,6 +21,12 @@ public class AddDataBean implements Serializable {
 	
 	private Team team;
 	
+	private Project project;
+	
+	private List<Project> projects;
+	
+	private List<Team> teams;
+	
 	
 
 	/**
@@ -31,6 +39,32 @@ public class AddDataBean implements Serializable {
 		masterDataDao.save(team);
 		return "index"; 
 
+	}
+	
+	/**
+	 * action method for adding project as master data.
+	 * returns to index.xhtml
+	 * @return
+	 */
+	public String addProject(){
+		
+		masterDataDao.save(project);
+		return "index";
+	}
+	
+	
+	/**
+	 * fetch all the projects 
+	 * @return
+	 */
+	public String fetchProjects(){
+		projects = masterDataDao.fetchAllProjects();
+		return null;
+	}
+	
+	public String fetchTeams(){
+		teams = masterDataDao.fetchAllTeams();
+		return null;
 	}
 
 	public MasterDataDao getMasterDataDao() {
@@ -47,6 +81,30 @@ public class AddDataBean implements Serializable {
 
 	public void setTeam(Team team) {
 		this.team = team;
+	}
+
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
+
+	public List<Project> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
+	}
+
+	public List<Team> getTeams() {
+		return teams;
+	}
+
+	public void setTeams(List<Team> teams) {
+		this.teams = teams;
 	}
 
 }

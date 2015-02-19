@@ -29,12 +29,7 @@ public class UserDao extends BaseDao {
 		return user;
 	}
 
-	@Override
-	Object insert() throws Exception {
-		
-
-		return null;
-	}
+	
 	
 	public List<User> selectAll() {
 

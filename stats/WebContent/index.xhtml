@@ -6,35 +6,8 @@
 	xmlns:a="http://java.sun.com/jsf/composite"
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
-<h:head>
-		stats
-	</h:head>
+
 <h:body>
-	<h:form>
-
-
-		<h:outputText value="User Names: " style="font-weight:bold" />
-
-		<ui:repeat var="user" value="#{readUsers.users}" varStatus="status">
-			<h:commandLink value="#{user.fName}" render="list,form">
-			</h:commandLink>
-			<h:outputText value=" | " />
-		</ui:repeat>
-		
-		<h:commandLink value="add Team" action="addTeam"></h:commandLink>
-		<br/>
-		<br/>
-		<h:panelGroup id="profile_panel" layout="div">
-			<h:outputText value="Team details" style="font-weight:bold" />
-			
-			
-			
-
-		</h:panelGroup>
-		
-		
-
-
-	</h:form>
+	<ui:include src="/Header.xhtml" />
 </h:body>
 </html>

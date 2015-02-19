@@ -14,11 +14,7 @@ public class UserProfileDao extends BaseDao{
 		return null;
 	}
 
-	@Override
-	Object insert() throws Exception {
-		
-		return null;
-	}
+	
 	
 	
 	
