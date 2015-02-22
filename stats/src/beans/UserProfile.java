@@ -33,7 +33,7 @@ public class UserProfile extends AppBaseBean {
 	
 	private String progress;
 	
-	
+	private String statusUpdate;
 	
 	
 	@PostConstruct
@@ -100,6 +100,16 @@ public class UserProfile extends AppBaseBean {
 
 	public void setProgress(String progress) {
 		this.progress = progress;
+	}
+
+
+	public String getStatusUpdate() {
+		return statusUpdate;
+	}
+
+
+	public void setStatusUpdate(String statusUpdate) {
+		this.statusUpdate = statusUpdate;
 	}
 
 }

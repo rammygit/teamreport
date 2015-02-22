@@ -7,62 +7,64 @@
 	xmlns:rich="http://richfaces.org/rich"
 	xmlns:a4j="http://richfaces.org/a4j">
 
-<h:head></h:head>
-<h:body>
-	<ui:include src="/Header.xhtml" />
-	<h:form>		
-	
-		<h:panelGrid columns="2">
-			<h:outputText value="enter team name"></h:outputText>
-			<h:inputText id="txtTeamName" value="#{addDataBean.team.teamName}"></h:inputText>
-			<h:outputText value="enter team owner"></h:outputText>
-			<h:inputText id="txtTeamOwner" value="#{addDataBean.team.teamOwner}"></h:inputText>
-			<h:outputText value="enter team status"></h:outputText>
-			<h:selectOneMenu id="drpdwnTeamStatus" value="#{addDataBean.team.active}">
-				<f:selectItem id="item1" itemLabel="Y" itemValue="Y" />
-				<f:selectItem id="item2" itemLabel="N" itemValue="N" />
-			</h:selectOneMenu>
-		</h:panelGrid>
-		<h:commandButton id="submitTeamAdd" value="Add Team" action="#{addDataBean.addTeam}"></h:commandButton>
-		
-		<h:commandButton id="submitFetchTeamBtn" value="Display All Teams" action="#{addDataBean.fetchTeams}" >
-			<f:ajax render="team_grid"></f:ajax>
-		</h:commandButton>
-		
-		<br/>
-		<br/>
-		
-		<h:dataTable id="team_grid" var="team" value="#{addDataBean.teams}">
+<ui:composition template="/CommonLayout.xhtml">
+	<ui:define name="content">
+		<h:form>
+
+			<h:panelGrid columns="2">
+				<h:outputText value="enter team name"></h:outputText>
+				<h:inputText id="txtTeamName" value="#{addDataBean.team.teamName}"></h:inputText>
+				<h:outputText value="enter team owner"></h:outputText>
+				<h:inputText id="txtTeamOwner" value="#{addDataBean.team.teamOwner}"></h:inputText>
+				<h:outputText value="enter team status"></h:outputText>
+				<h:selectOneMenu id="drpdwnTeamStatus"
+					value="#{addDataBean.team.active}">
+					<f:selectItem id="item1" itemLabel="Y" itemValue="Y" />
+					<f:selectItem id="item2" itemLabel="N" itemValue="N" />
+				</h:selectOneMenu>
+			</h:panelGrid>
+			<h:commandButton id="submitTeamAdd" value="Add Team"
+				action="#{addDataBean.addTeam}"></h:commandButton>
+
+			<h:commandButton id="submitFetchTeamBtn" value="Display All Teams"
+				action="#{addDataBean.fetchTeams}">
+				<f:ajax render="team_grid"></f:ajax>
+			</h:commandButton>
+
+			<br />
+			<br />
+
+			<h:dataTable id="team_grid" var="team" value="#{addDataBean.teams}">
 				<h:column>
-    				<!-- column header -->
-    				<f:facet name="header">Team Id</f:facet>
-    				<!-- row record -->
+					<!-- column header -->
+					<f:facet name="header">Team Id</f:facet>
+					<!-- row record -->
     				#{team.teamId}
     			</h:column>
-    			<h:column>
-    				<!-- column header -->
-    				<f:facet name="header">Team Name</f:facet>
-    				<!-- row record -->
+				<h:column>
+					<!-- column header -->
+					<f:facet name="header">Team Name</f:facet>
+					<!-- row record -->
     				#{team.teamName}
     			</h:column>
-    			<h:column>
-    				<!-- column header -->
-    				<f:facet name="header">Team Owner</f:facet>
-    				<!-- row record -->
+				<h:column>
+					<!-- column header -->
+					<f:facet name="header">Team Owner</f:facet>
+					<!-- row record -->
     				#{team.teamOwner}
     			</h:column>
-    			<h:column>
-    				<!-- column header -->
-    				<f:facet name="header">Active</f:facet>
-    				<!-- row record -->
+				<h:column>
+					<!-- column header -->
+					<f:facet name="header">Active</f:facet>
+					<!-- row record -->
     				#{team.active}
     			</h:column>
-		</h:dataTable>
-		
-		
+			</h:dataTable>
 
-	</h:form>
-</h:body>
 
+
+		</h:form>
+	</ui:define>
+</ui:composition>
 
 </html>
