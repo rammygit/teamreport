@@ -3,17 +3,41 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
 
+<h:head></h:head>
 <h:body>
 	<ui:include src="/Header.xhtml" />
-	<h:form>	
-		
+	<h:form>
+
 		<h:panelGrid columns="2">
 			<h:outputLabel value="Select the User"></h:outputLabel>
-			<h:selectOneMenu id="selectUsrMenu" value="#{readUsers.userName}">
-				<f:selectItems value="#{readUsers.users}" var="currentUser" itemValue="#{currentUser.userId}" itemLabel="#{currentUser.fName} #{currentUser.lName}"/>
+			<h:selectOneMenu id="selectUsrMenu" value="#{userProfile.userName}">
+				<f:selectItems value="#{userProfile.users}" var="currentUser"
+					itemValue="#{currentUser.userId}"
+					itemLabel="#{currentUser.fName} #{currentUser.lName}" />
 			</h:selectOneMenu>
+
+			<h:outputLabel value="select project"></h:outputLabel>
+			<h:selectOneMenu id="selectproj" value="#{userProfile.projectId}">
+				<f:selectItems value="#{userProfile.systemStartup.projects}"
+					var="project" itemValue="#{project.projectId}"
+					itemLabel="#{project.projectName}" />
+			</h:selectOneMenu>
+
+			<h:outputLabel value="select team"></h:outputLabel>
+			<h:selectOneMenu id="selectTeam" value="#{userProfile.teamId}">
+				<f:selectItems value="#{userProfile.systemStartup.teams}" var="team"
+					itemValue="#{team.teamId}" itemLabel="#{team.teamName}" />
+			</h:selectOneMenu>
+
+			<h:outputLabel value="select progress"></h:outputLabel>
+			<rich:inputNumberSlider value="#{userProfile.progress}"
+				maxValue="100" enableManualInput="false" step="10" showArrows="true"
+				showTooltip="false" />
+
 		</h:panelGrid>
 
 	</h:form>

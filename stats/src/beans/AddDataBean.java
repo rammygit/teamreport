@@ -1,6 +1,5 @@
 package beans;
 
-import java.io.Serializable;
 import java.util.List;
 
 import utilities.MasterDataDao;
@@ -8,15 +7,15 @@ import utilities.pojo.Project;
 import utilities.pojo.Team;
 
 /**
- * 
+ * used by the team and project tab.
  * @author ramkumarsundarajan
  *
  */
-public class AddDataBean implements Serializable {
-
+public class AddDataBean extends AppBaseBean{
+	
 	
 	private static final long serialVersionUID = 1L;
-	
+
 	private MasterDataDao masterDataDao;
 	
 	private Team team;
