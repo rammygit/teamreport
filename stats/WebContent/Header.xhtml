@@ -9,19 +9,25 @@
 
 <h:body>
 
-<ui:composition>
+	<ui:composition>
 
-	<h:form id="header_form">
-		<h:link outcome="userprofile" value="User Profile" />
-		<h:outputText value=" | " />
-		<h:link outcome="addProject" value="Project"/>
-		<h:outputText value=" | " />
-		<h:link outcome="addTeam" value="Team"/>
-		<br />
-		<br />
-	</h:form>
+		<h:form id="header_form">
+			
+				<ul id="menu-bar">
+					<li class="active">
+						<h:link outcome="userprofile" value="User Profile" />
+					</li>
+
+					<li><h:link outcome="addProject" value="Project" /></li>
+
+					<li><h:link outcome="addTeam" value="Team" /></li>
+
+				</ul>
+
+			
+		</h:form>
 
 
-</ui:composition>
+	</ui:composition>
 </h:body>
 </html>
