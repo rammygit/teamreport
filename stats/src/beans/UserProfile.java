@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 
 import utilities.UserDao;
+import utilities.pojo.Profile;
 import utilities.pojo.User;
 
 /**
@@ -25,7 +26,7 @@ public class UserProfile extends AppBaseBean {
 	
 	private List<User> users;
 	
-	private String userName;
+	private String userId;
 	
 	private String projectId;
 	
@@ -35,11 +36,25 @@ public class UserProfile extends AppBaseBean {
 	
 	private String statusUpdate;
 	
+	private String reportingManager;
+	
 	
 	@PostConstruct
 	public void loadData(){
 		users = userDao.selectAll();
 		
+	}
+	
+	public String saveUserProfile(){
+		Profile profile = new Profile();
+		profile.setUserId(userId);
+		profile.setTeamId(teamId);
+		profile.setProjectId(projectId);
+		profile.setComment(statusUpdate);
+		profile.setProgress(progress);
+		profile.setReportingManager(reportingManager);
+		
+		return null;
 	}
 	
 
@@ -60,12 +75,14 @@ public class UserProfile extends AppBaseBean {
 		this.users = users;
 	}
 
-	public String getUserName() {
-		return userName;
+	
+
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public SystemStartup getSystemStartup() {
@@ -110,6 +127,16 @@ public class UserProfile extends AppBaseBean {
 
 	public void setStatusUpdate(String statusUpdate) {
 		this.statusUpdate = statusUpdate;
+	}
+
+
+	public String getReportingManager() {
+		return reportingManager;
+	}
+
+
+	public void setReportingManager(String reportingManager) {
+		this.reportingManager = reportingManager;
 	}
 
 }

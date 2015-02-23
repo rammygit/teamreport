@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
+import utilities.pojo.Profile;
 import utilities.pojo.User;
 
 /**
@@ -43,7 +44,13 @@ public class UserDao extends BaseDao {
 		return users;
 	}
 
-	
+	/**
+	 * 
+	 * @param profile
+	 */
+	public void saveProfileData(Profile profile){
+		
+	}
 
 	
 }

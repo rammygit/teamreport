@@ -13,21 +13,21 @@
 
 			<h:panelGrid columns="2">
 				<h:outputLabel value="Select the User"></h:outputLabel>
-				<h:selectOneMenu id="selectUsrMenu" value="#{userProfile.userName}">
+				<h:selectOneMenu id="selectUsrMenu" styleClass="styled-select slate" value="#{userProfile.userId}">
 					<f:selectItems value="#{userProfile.users}" var="currentUser"
 						itemValue="#{currentUser.userId}"
 						itemLabel="#{currentUser.fName} #{currentUser.lName}" />
 				</h:selectOneMenu>
 
 				<h:outputLabel value="select project"></h:outputLabel>
-				<h:selectOneMenu id="selectproj" value="#{userProfile.projectId}">
+				<h:selectOneMenu id="selectproj" styleClass="styled-select slate" value="#{userProfile.projectId}">
 					<f:selectItems value="#{userProfile.systemStartup.projects}"
 						var="project" itemValue="#{project.projectId}"
 						itemLabel="#{project.projectName}" />
 				</h:selectOneMenu>
 
 				<h:outputLabel value="select team"></h:outputLabel>
-				<h:selectOneMenu id="selectTeam" value="#{userProfile.teamId}">
+				<h:selectOneMenu id="selectTeam" styleClass="styled-select slate" value="#{userProfile.teamId}">
 					<f:selectItems value="#{userProfile.systemStartup.teams}"
 						var="team" itemValue="#{team.teamId}" itemLabel="#{team.teamName}" />
 				</h:selectOneMenu>
@@ -40,6 +40,10 @@
 				<h:outputLabel value="brief status update"></h:outputLabel>
 				<h:inputTextarea id="txtareaStatusUpdate"
 					value="#{userProfile.statusUpdate}" rows="7" cols="50"></h:inputTextarea>
+					
+				<h:outputLabel value="reporting manager"></h:outputLabel>
+				<h:inputText id="txtReportingMngr"
+					value="#{userProfile.reportingManager}" styleClass="textbox"></h:inputText>
 
 			</h:panelGrid>
 

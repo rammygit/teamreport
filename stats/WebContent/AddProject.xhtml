@@ -10,22 +10,27 @@
 <ui:composition template="/CommonLayout.xhtml">
 	<ui:define name="content">
 		<h:form id="form1">
-			<h:panelGrid columns="2">
+			<h:panelGrid columns="3">
 				<h:outputText value="Enter Project Name"></h:outputText>
 				<h:inputText id="txtProjectName"
-					value="#{addDataBean.project.projectName}"></h:inputText>
+					value="#{addDataBean.project.projectName}" styleClass="textbox" 
+						required="true" requiredMessage="please enter the project name"/>
+				<h:message for="txtProjectName" style="color:red"></h:message>
 				<h:outputText value="Enter Project Start Date (mm/dd/yyyy)"></h:outputText>
 				<h:inputText id="txtProjectStDt"
-					value="#{addDataBean.project.startDate}"></h:inputText>
-				<h:outputText value="Enter Project End Date (mm/dd/yyyy)"></h:outputText>
+					value="#{addDataBean.project.startDate}" styleClass="textbox" 
+						required="true" requiredMessage="please enter the start date"/>
+				<h:message for="txtProjectStDt" style="color:red"></h:message>				
+				<h:outputText value="Enter Project End Date (mm/dd/yyyy)" ></h:outputText>
 				<h:inputText id="txtProjectEnDt"
-					value="#{addDataBean.project.endDate}"></h:inputText>
-
+					value="#{addDataBean.project.endDate}" styleClass="textbox" 
+							required="true" requiredMessage="please enter the planned project end date"/>
+				<h:message for="txtProjectEnDt" style="color:red"></h:message>
 			</h:panelGrid>
-			<h:commandButton id="submitTeamAdd" value="Add Project"
+			<h:commandButton id="submitTeamAdd" value="Add Project" styleClass="button-secondary"
 				action="#{addDataBean.addProject}"></h:commandButton>
 
-			<h:commandButton id="submitFetchProjectBtn"
+			<h:commandButton id="submitFetchProjectBtn" styleClass="button-secondary"
 				value="Display All Projects" action="#{addDataBean.fetchProjects}">
 				<f:ajax render="project_grid"></f:ajax>
 			</h:commandButton>

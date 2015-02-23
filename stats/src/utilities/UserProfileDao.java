@@ -15,7 +15,9 @@ public class UserProfileDao extends BaseDao{
 	}
 
 	
-	
+	public void save(){
+		
+	}
 	
 	
 	
