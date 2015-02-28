@@ -10,10 +10,11 @@
 <ui:composition template="/CommonLayout.xhtml">
 	<ui:define name="content">
 		<h:form>
-			<h:messages globalOnly="true" ></h:messages>
+			
 			<h:panelGrid columns="2">
 				<h:outputLabel value="Select the User"></h:outputLabel>
 				<h:selectOneMenu id="selectUsrMenu" styleClass="styled-select slate" value="#{userProfile.userId}">
+					<f:selectItem itemLabel="select user" itemValue="no value"></f:selectItem>
 					<f:selectItems value="#{userProfile.users}" var="currentUser"
 						itemValue="#{currentUser.userId}"
 						itemLabel="#{currentUser.fName} #{currentUser.lName}" />
@@ -21,6 +22,7 @@
 
 				<h:outputLabel value="select project"></h:outputLabel>
 				<h:selectOneMenu id="selectproj" styleClass="styled-select slate" value="#{userProfile.projectId}">
+					<f:selectItem itemLabel="select project" itemValue="no value"></f:selectItem>
 					<f:selectItems value="#{userProfile.systemStartup.projects}"
 						var="project" itemValue="#{project.projectId}"
 						itemLabel="#{project.projectName}" />
@@ -28,6 +30,7 @@
 
 				<h:outputLabel value="select team"></h:outputLabel>
 				<h:selectOneMenu id="selectTeam" styleClass="styled-select slate" value="#{userProfile.teamId}">
+					<f:selectItem itemLabel="select team" itemValue="no value"></f:selectItem>
 					<f:selectItems value="#{userProfile.systemStartup.teams}"
 						var="team" itemValue="#{team.teamId}" itemLabel="#{team.teamName}" />
 				</h:selectOneMenu>
@@ -53,8 +56,6 @@
 			
 			<br/>
 			<br/>
-			
-				
 				
 
 		</h:form>

@@ -6,40 +6,45 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-	<h:outputStylesheet name="css/layout.css"/>
-	<h:outputStylesheet name="css/menu.css"/>
-	<h:outputStylesheet name="css/content.css"/>
-	<h:outputStylesheet name="css/table-style.css"/>
-	
+	<h:outputStylesheet name="css/layout.css" />
+	<h:outputStylesheet name="css/menu.css" />
+	<h:outputStylesheet name="css/content.css" />
+	<h:outputStylesheet name="css/table-style.css" />
+
 </h:head>
 
 <h:body>
 
 	<div id="wrapper">
-	
-		 <!--  <div id="navigationwrap">
+
+		<!--  <div id="navigationwrap">
 			<div id="navigation">
 				<ui:insert name="header">
 					<ui:include src="/Header.xhtml" />
 				</ui:insert>
 			</div>
 		</div> -->
-		
+
 		<ui:insert name="header">
-					<ui:include src="/Header.xhtml" />
+			<ui:include src="/Header.xhtml" />
+			<br />
+			<h:messages id="messages" infoStyle=" color: green;"
+				errorStyle=" color: red;" />
+			<br />
+			<br/>
 		</ui:insert>
 
 		<div id="contentliquid">
 			<div id="contentwrap">
 				<div id="content">
 					<!-- content div goes here. -->
-					<ui:insert name="content" >
+					<ui:insert name="content">
 					</ui:insert>
 				</div>
 			</div>
 		</div>
 
-		
+
 
 	</div>
 
