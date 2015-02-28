@@ -74,7 +74,10 @@
 		<h:commandButton id="fetchprofilebtn" action="#{userProfile.fetchProfileData}"  styleClass="btn"
 			value="Fetch user profile"></h:commandButton>
 		
-			<h:dataTable id="profile_grid" var="profile" value="#{userProfile.profiles}">
+			<h:dataTable id="profile_grid" var="profile" styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row"
+			value="#{userProfile.profiles}">
 				<h:column>
 					<!-- column header -->
 					<f:facet name="header">user Id</f:facet>

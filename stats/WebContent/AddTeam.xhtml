@@ -40,7 +40,9 @@
 			<br />
 			<br />
 
-			<h:dataTable id="team_grid" var="team" value="#{addDataBean.teams}">
+			<h:dataTable id="team_grid" var="team" value="#{addDataBean.teams}" styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row">
 				<h:column>
 					<!-- column header -->
 					<f:facet name="header">Team Id</f:facet>
