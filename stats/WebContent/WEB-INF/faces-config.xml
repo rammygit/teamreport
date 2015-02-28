@@ -8,7 +8,7 @@
 		<managed-bean-scope>request</managed-bean-scope>
 		<managed-property>
 			<property-name>masterDataDao</property-name>
-			<property-class>utilities.MasterDataDao</property-class>
+			<property-class>dao.MasterDataDao</property-class>
 			<value>#{masterDataDao}</value>
 		</managed-property>
 		<managed-property>
@@ -38,7 +38,7 @@
 		<managed-bean-scope>session</managed-bean-scope>
 		<managed-property>
 			<property-name>masterDataDao</property-name>
-			<property-class>utilities.MasterDataDao</property-class>
+			<property-class>dao.MasterDataDao</property-class>
 			<value>#{masterDataDao}</value>
 		</managed-property>
 	</managed-bean>
@@ -48,7 +48,7 @@
 		<managed-bean-scope>session</managed-bean-scope>
 		<managed-property>
 			<property-name>userDao</property-name>
-			<property-class>utilities.UserDao</property-class>
+			<property-class>dao.UserDao</property-class>
 			<value>#{userDao}</value>
 		</managed-property>
 		<managed-property>
@@ -70,6 +70,10 @@
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>userprofile</from-outcome>
+			<to-view-id>/AddUserProfile.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>riskschallenges</from-outcome>
 			<to-view-id>/AddUserProfile.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>

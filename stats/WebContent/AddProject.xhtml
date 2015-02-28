@@ -27,10 +27,12 @@
 							required="true" requiredMessage="please enter the planned project end date"/>
 				<h:message for="txtProjectEnDt" style="color:red"></h:message>
 			</h:panelGrid>
-			<h:commandButton id="submitTeamAdd" value="Add Project" styleClass="button-secondary"
+			<br/>
+			<br/>
+			<h:commandButton id="submitTeamAdd" value="Add Project" styleClass="btn"
 				action="#{addDataBean.addProject}"></h:commandButton>
 
-			<h:commandButton id="submitFetchProjectBtn" styleClass="button-secondary"
+			<h:commandButton id="submitFetchProjectBtn" styleClass="btn"
 				value="Display All Projects" action="#{addDataBean.fetchProjects}">
 				<f:ajax render="project_grid"></f:ajax>
 			</h:commandButton>

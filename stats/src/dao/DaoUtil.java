@@ -1,8 +1,13 @@
-package utilities;
+package dao;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Map;
 
+import beans.UserProfile;
+import utilities.converters.StringUtil;
+import utilities.pojo.Profile;
 import utilities.pojo.Project;
 import utilities.pojo.Team;
 import utilities.pojo.User;
@@ -28,6 +33,16 @@ public class DaoUtil implements Serializable {
 		user.setfName((String)row.get("fname"));
 		user.setlName((String)row.get("lname"));
 		user.setRole((String)row.get("role"));
+		return user;
+	}
+	
+	
+	public static User userRowMapper(ResultSet resultSet) throws SQLException{
+		User user = new User();
+		user.setUserId(resultSet.getInt("userId"));
+		user.setfName(resultSet.getString("fname"));
+		user.setlName(resultSet.getString("lname"));
+		user.setRole(resultSet.getString("role"));
 		return user;
 	}
 	
@@ -58,6 +73,22 @@ public class DaoUtil implements Serializable {
 		project.setStartDate((String)row.get("start_date"));
 		project.setEndDate((String)row.get("end_date"));
 		return project;
+	}
+	
+	/**
+	 * 
+	 * @param row
+	 * @return
+	 */
+	public static Profile profileRowMapper(Map<String, Object> row) {
+		Profile profile = new Profile();
+		profile.setUserId(StringUtil.toString(row.get("userId")));
+		profile.setTeamId(StringUtil.toString(row.get("teamId")));
+		profile.setProjectId(StringUtil.toString(row.get("projectId")));
+		profile.setComment(StringUtil.toString(row.get("comment")));
+		profile.setReportingManager(StringUtil.toString(row.get("reporting_manager")));
+		profile.setProgress(StringUtil.toString(row.get("progress")));
+		return profile;
 	}
 
 }

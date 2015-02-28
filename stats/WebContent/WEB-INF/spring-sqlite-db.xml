@@ -11,12 +11,12 @@
 		
 	</bean>
 	
-	<bean id="userDao" class="utilities.UserDao" parent="baseDao">		
+	<bean id="userDao" class="dao.UserDao" parent="baseDao">		
 	</bean>
 	
-	<bean id="masterDataDao" class="utilities.MasterDataDao" parent="baseDao"></bean>
+	<bean id="masterDataDao" class="dao.MasterDataDao" parent="baseDao"></bean>
 
-	<bean id="baseDao" class="utilities.BaseDao" abstract="true">
+	<bean id="baseDao" class="dao.BaseDao" abstract="true">
 		<property name="dataSource" ref="sqliteDataSource" />
 	</bean>
 

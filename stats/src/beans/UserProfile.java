@@ -1,11 +1,13 @@
 package beans;
 
-import java.io.Serializable;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
-import utilities.UserDao;
+import dao.UserDao;
 import utilities.pojo.Profile;
 import utilities.pojo.User;
 
@@ -38,6 +40,8 @@ public class UserProfile extends AppBaseBean {
 	
 	private String reportingManager;
 	
+	private List<Profile> profiles;
+	
 	
 	@PostConstruct
 	public void loadData(){
@@ -45,6 +49,10 @@ public class UserProfile extends AppBaseBean {
 		
 	}
 	
+	/**
+	 * save into user_profile table.
+	 * @return
+	 */
 	public String saveUserProfile(){
 		Profile profile = new Profile();
 		profile.setUserId(userId);
@@ -53,7 +61,28 @@ public class UserProfile extends AppBaseBean {
 		profile.setComment(statusUpdate);
 		profile.setProgress(progress);
 		profile.setReportingManager(reportingManager);
+		boolean saved = userDao.saveProfileData(profile);
+		if (saved) {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("profile data is saved successfully","profile data saved successfully"));
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("profile data is saved successfully","profile data saved successfully"));
+		}
 		
+		return null;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String fetchProfileData(){
+		try {
+			profiles = userDao.fetchUserProfileData(new Integer(userId));
+		} catch (NumberFormatException e) {			
+			e.printStackTrace();
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		}
 		return null;
 	}
 	
@@ -137,6 +166,14 @@ public class UserProfile extends AppBaseBean {
 
 	public void setReportingManager(String reportingManager) {
 		this.reportingManager = reportingManager;
+	}
+
+	public List<Profile> getProfiles() {
+		return profiles;
+	}
+
+	public void setProfiles(List<Profile> profiles) {
+		this.profiles = profiles;
 	}
 
 }

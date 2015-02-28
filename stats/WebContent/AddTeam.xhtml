@@ -27,10 +27,12 @@
 					<f:selectItem id="item2" itemLabel="N" itemValue="N" />
 				</h:selectOneMenu>
 			</h:panelGrid>
-			<h:commandButton id="submitTeamAdd" value="Add Team" styleClass="button-secondary"
+			<br/>
+			<br/>
+			<h:commandButton id="submitTeamAdd" value="Add Team" styleClass="btn"
 				action="#{addDataBean.addTeam}"></h:commandButton>
 
-			<h:commandButton id="submitFetchTeamBtn" value="Display All Teams" styleClass="button-secondary"
+			<h:commandButton id="submitFetchTeamBtn" value="Display All Teams" styleClass="btn"
 				action="#{addDataBean.fetchTeams}">
 				<f:ajax render="team_grid"></f:ajax>
 			</h:commandButton>

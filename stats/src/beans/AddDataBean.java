@@ -2,7 +2,7 @@ package beans;
 
 import java.util.List;
 
-import utilities.MasterDataDao;
+import dao.MasterDataDao;
 import utilities.pojo.Project;
 import utilities.pojo.Team;
 

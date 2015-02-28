@@ -10,6 +10,9 @@
    <PROCESS-ITEM-OUTPUT ID="userprofile::#AddUserProfile.xhtml"
     NAME="output2" PATH="/AddUserProfile.xhtml"
     TARGET="rules:#AddUserProfile.xhtml" TITLE="userprofile" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="riskschallenges::#AddUserProfile.xhtml"
+    NAME="output3" PATH="/AddUserProfile.xhtml"
+    TARGET="rules:#AddUserProfile.xhtml" TITLE="riskschallenges" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#AddProject.xhtml" PATH="/AddProject.xhtml"

@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
-import utilities.MasterDataDao;
+import dao.MasterDataDao;
 import utilities.pojo.Project;
 import utilities.pojo.Team;
 import utilities.pojo.User;
