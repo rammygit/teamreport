@@ -11,63 +11,68 @@
 	<ui:define name="content">
 		<h:form>
 
-			<h:panelGrid columns="3" >
+			<h:panelGrid columns="3">
 				<h:outputText value="enter team name"></h:outputText>
-				<h:inputText id="txtTeamName" value="#{addDataBean.team.teamName}" styleClass="textbox" 
-								required="true" requiredMessage="please enter the team name"></h:inputText>
+				<h:inputText id="txtTeamName" value="#{addDataBean.team.teamName}"
+					styleClass="textbox" required="true"
+					requiredMessage="please enter the team name"></h:inputText>
 				<h:message for="txtTeamName" style="color:red"></h:message>
 				<h:outputText value="enter team owner"></h:outputText>
-				<h:inputText id="txtTeamOwner" value="#{addDataBean.team.teamOwner}" styleClass="textbox" 
-								required="true" requiredMessage="please enter the team owner name"/>
+				<h:inputText id="txtTeamOwner" value="#{addDataBean.team.teamOwner}"
+					styleClass="textbox" required="true"
+					requiredMessage="please enter the team owner name" />
 				<h:message for="txtTeamOwner" style="color:red"></h:message>
 				<h:outputText value="enter team status"></h:outputText>
-				<h:selectOneMenu id="drpdwnTeamStatus" styleClass="styled-select slate"
-					value="#{addDataBean.team.active}">
+				<h:selectOneMenu id="drpdwnTeamStatus"
+					styleClass="styled-select slate" value="#{addDataBean.team.active}">
 					<f:selectItem id="item1" itemLabel="Y" itemValue="Y" />
 					<f:selectItem id="item2" itemLabel="N" itemValue="N" />
 				</h:selectOneMenu>
 			</h:panelGrid>
-			<br/>
-			<br/>
+			<br />
+			<br />
 			<h:commandButton id="submitTeamAdd" value="Add Team" styleClass="btn"
 				action="#{addDataBean.addTeam}"></h:commandButton>
 
-			<h:commandButton id="submitFetchTeamBtn" value="Display All Teams" styleClass="btn"
-				action="#{addDataBean.fetchTeams}">
-				<f:ajax render="team_grid"></f:ajax>
+			<h:commandButton id="submitFetchTeamBtn" value="Display All Teams"
+				styleClass="btn" action="#{addDataBean.fetchTeams}">
+				<f:ajax render="teamdiv"></f:ajax>
 			</h:commandButton>
 
 			<br />
 			<br />
-
-			<h:dataTable id="team_grid" var="team" value="#{addDataBean.teams}" styleClass="order-table"
-    			headerClass="order-table-header"
-    			rowClasses="order-table-odd-row,order-table-even-row" rendered="#{!empty addDataBean.teams}">
-				<h:column>
-					<!-- column header -->
-					<f:facet name="header">Team Id</f:facet>
-					<!-- row record -->
+			<h:panelGroup id="teamdiv" layout="block">
+				<h:dataTable id="team_grid" var="team" value="#{addDataBean.teams}"
+					styleClass="order-table" headerClass="order-table-header"
+					rowClasses="order-table-odd-row,order-table-even-row"
+					rendered="#{!empty addDataBean.teams}">
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">Team Id</f:facet>
+						<!-- row record -->
     				#{team.teamId}
     			</h:column>
-				<h:column>
-					<!-- column header -->
-					<f:facet name="header">Team Name</f:facet>
-					<!-- row record -->
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">Team Name</f:facet>
+						<!-- row record -->
     				#{team.teamName}
     			</h:column>
-				<h:column>
-					<!-- column header -->
-					<f:facet name="header">Team Owner</f:facet>
-					<!-- row record -->
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">Team Owner</f:facet>
+						<!-- row record -->
     				#{team.teamOwner}
     			</h:column>
-				<h:column>
-					<!-- column header -->
-					<f:facet name="header">Active</f:facet>
-					<!-- row record -->
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">Active</f:facet>
+						<!-- row record -->
     				#{team.active}
     			</h:column>
-			</h:dataTable>
+				</h:dataTable>
+			</h:panelGroup>
+
 
 
 

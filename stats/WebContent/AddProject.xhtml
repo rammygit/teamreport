@@ -13,63 +13,65 @@
 			<h:panelGrid columns="3">
 				<h:outputText value="Enter Project Name"></h:outputText>
 				<h:inputText id="txtProjectName"
-					value="#{addDataBean.project.projectName}" styleClass="textbox" 
-						required="true" requiredMessage="please enter the project name"/>
+					value="#{addDataBean.project.projectName}" styleClass="textbox"
+					required="true" requiredMessage="please enter the project name" />
 				<h:message for="txtProjectName" style="color:red"></h:message>
 				<h:outputText value="Enter Project Start Date (mm/dd/yyyy)"></h:outputText>
 				<h:inputText id="txtProjectStDt"
-					value="#{addDataBean.project.startDate}" styleClass="textbox" 
-						required="true" requiredMessage="please enter the start date"/>
-				<h:message for="txtProjectStDt" style="color:red"></h:message>				
-				<h:outputText value="Enter Project End Date (mm/dd/yyyy)" ></h:outputText>
+					value="#{addDataBean.project.startDate}" styleClass="textbox"
+					required="true" requiredMessage="please enter the start date" />
+				<h:message for="txtProjectStDt" style="color:red"></h:message>
+				<h:outputText value="Enter Project End Date (mm/dd/yyyy)"></h:outputText>
 				<h:inputText id="txtProjectEnDt"
-					value="#{addDataBean.project.endDate}" styleClass="textbox" 
-							required="true" requiredMessage="please enter the planned project end date"/>
+					value="#{addDataBean.project.endDate}" styleClass="textbox"
+					required="true"
+					requiredMessage="please enter the planned project end date" />
 				<h:message for="txtProjectEnDt" style="color:red"></h:message>
 			</h:panelGrid>
-			<br/>
-			<br/>
-			<h:commandButton id="submitTeamAdd" value="Add Project" styleClass="btn"
-				action="#{addDataBean.addProject}"></h:commandButton>
+			<br />
+			<br />
+			<h:commandButton id="submitTeamAdd" value="Add Project"
+				styleClass="btn" action="#{addDataBean.addProject}"></h:commandButton>
 
 			<h:commandButton id="submitFetchProjectBtn" styleClass="btn"
 				value="Display All Projects" action="#{addDataBean.fetchProjects}">
-				<f:ajax render="project_grid"></f:ajax>
+				<f:ajax render="projectresultDiv"></f:ajax>
 			</h:commandButton>
 
 			<br />
 			<br />
-
-			<h:dataTable id="project_grid" var="project" styleClass="order-table"
-    			headerClass="order-table-header"
-    			rowClasses="order-table-odd-row,order-table-even-row"
-				value="#{addDataBean.projects}">
-				<h:column>
-					<!-- column header -->
-					<f:facet name="header">Project Id</f:facet>
-					<!-- row record -->
+			<h:panelGroup id="projectresultDiv" layout="block">
+				<h:dataTable id="project_grid" var="project"
+					styleClass="order-table" rendered="#{!empty addDataBean.projects}"
+					headerClass="order-table-header"
+					rowClasses="order-table-odd-row,order-table-even-row"
+					value="#{addDataBean.projects}">
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">Project Id</f:facet>
+						<!-- row record -->
     				#{project.projectId}
     			</h:column>
-				<h:column>
-					<!-- column header -->
-					<f:facet name="header">Project Name</f:facet>
-					<!-- row record -->
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">Project Name</f:facet>
+						<!-- row record -->
     				#{project.projectName}
     			</h:column>
-				<h:column>
-					<!-- column header -->
-					<f:facet name="header">startDate</f:facet>
-					<!-- row record -->
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">startDate</f:facet>
+						<!-- row record -->
     				#{project.startDate}
     			</h:column>
-				<h:column>
-					<!-- column header -->
-					<f:facet name="header">endDate</f:facet>
-					<!-- row record -->
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">endDate</f:facet>
+						<!-- row record -->
     				#{project.endDate}
     			</h:column>
-			</h:dataTable>
-
+				</h:dataTable>
+			</h:panelGroup>
 		</h:form>
 	</ui:define>
 </ui:composition>
