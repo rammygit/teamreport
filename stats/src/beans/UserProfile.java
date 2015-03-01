@@ -42,6 +42,8 @@ public class UserProfile extends AppBaseBean {
 	
 	private List<Profile> profiles;
 	
+	private String selectProfileOption;
+	
 	
 	@PostConstruct
 	public void loadData(){
@@ -174,6 +176,14 @@ public class UserProfile extends AppBaseBean {
 
 	public void setProfiles(List<Profile> profiles) {
 		this.profiles = profiles;
+	}
+
+	public String getSelectProfileOption() {
+		return selectProfileOption;
+	}
+
+	public void setSelectProfileOption(String selectProfileOption) {
+		this.selectProfileOption = selectProfileOption;
 	}
 
 }

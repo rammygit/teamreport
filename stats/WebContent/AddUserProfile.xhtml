@@ -9,103 +9,129 @@
 
 <ui:composition template="/CommonLayout.xhtml">
 	<ui:define name="content">
-		<h:form>
-			
-			<h:panelGrid columns="2">
-				<h:outputLabel value="Select the User"></h:outputLabel>
-				<h:selectOneMenu id="selectUsrMenu" styleClass="styled-select slate" value="#{userProfile.userId}">
-					<f:selectItem itemLabel="select user" itemValue="no value"></f:selectItem>
-					<f:selectItems value="#{userProfile.users}" var="currentUser"
-						itemValue="#{currentUser.userId}"
-						itemLabel="#{currentUser.fName} #{currentUser.lName}" />
-				</h:selectOneMenu>
-
-				<h:outputLabel value="select project"></h:outputLabel>
-				<h:selectOneMenu id="selectproj" styleClass="styled-select slate" value="#{userProfile.projectId}">
-					<f:selectItem itemLabel="select project" itemValue="no value"></f:selectItem>
-					<f:selectItems value="#{userProfile.systemStartup.projects}"
-						var="project" itemValue="#{project.projectId}"
-						itemLabel="#{project.projectName}" />
-				</h:selectOneMenu>
-
-				<h:outputLabel value="select team"></h:outputLabel>
-				<h:selectOneMenu id="selectTeam" styleClass="styled-select slate" value="#{userProfile.teamId}">
-					<f:selectItem itemLabel="select team" itemValue="no value"></f:selectItem>
-					<f:selectItems value="#{userProfile.systemStartup.teams}"
-						var="team" itemValue="#{team.teamId}" itemLabel="#{team.teamName}" />
-				</h:selectOneMenu>
-
-				<h:outputLabel value="select progress"></h:outputLabel>
-				<rich:inputNumberSlider value="#{userProfile.progress}"
-					maxValue="100" enableManualInput="false" step="10"
-					showArrows="true" showTooltip="false" />
-
-				<h:outputLabel value="brief status update"></h:outputLabel>
-				<h:inputTextarea id="txtareaStatusUpdate"
-					value="#{userProfile.statusUpdate}" rows="7" cols="50"></h:inputTextarea>
-					
-				<h:outputLabel value="reporting manager"></h:outputLabel>
-				<h:inputText id="txtReportingMngr"
-					value="#{userProfile.reportingManager}" styleClass="textbox"></h:inputText>
-
-			</h:panelGrid>
-			
-			<h:commandButton id="saveprofilebtn" action="#{userProfile.saveUserProfile}"  styleClass="btn"
-			value="save user profile"></h:commandButton>
-			
-			
-			<br/>
-			<br/>
-				
-
+		<h:form id="rdoprofile">
+			<h:selectOneRadio value="#{userProfile.selectProfileOption}">
+				<f:selectItem itemValue="1" itemLabel="Enter profile data" />
+				<f:selectItem itemValue="2" itemLabel="See profile data" />
+				<f:ajax render="saveprofilediv fetchprofilediv" event="click"></f:ajax>
+			</h:selectOneRadio>
 		</h:form>
-		
-		<h:form id="profiledataform">
-		
-			<h:outputLabel value="search profile filter"></h:outputLabel>
-			<br/>
-			<h:outputLabel value="Select the User for profile"></h:outputLabel>
-				<h:selectOneMenu id="selectUsrdropdwn" styleClass="styled-select slate" value="#{userProfile.userId}">
+		<h:panelGroup id="saveprofilediv" layout="block" >
+
+			<h:form id="saveprofileform" rendered="#{userProfile.selectProfileOption == 1}">
+
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Select the User"></h:outputLabel>
+					<h:selectOneMenu id="selectUsrMenu"
+						styleClass="styled-select slate" value="#{userProfile.userId}">
+						<f:selectItem itemLabel="select user" itemValue="no value"></f:selectItem>
+						<f:selectItems value="#{userProfile.users}" var="currentUser"
+							itemValue="#{currentUser.userId}"
+							itemLabel="#{currentUser.fName} #{currentUser.lName}" />
+					</h:selectOneMenu>
+
+					<h:outputLabel value="select project"></h:outputLabel>
+					<h:selectOneMenu id="selectproj" styleClass="styled-select slate"
+						value="#{userProfile.projectId}">
+						<f:selectItem itemLabel="select project" itemValue="no value"></f:selectItem>
+						<f:selectItems value="#{userProfile.systemStartup.projects}"
+							var="project" itemValue="#{project.projectId}"
+							itemLabel="#{project.projectName}" />
+					</h:selectOneMenu>
+
+					<h:outputLabel value="select team"></h:outputLabel>
+					<h:selectOneMenu id="selectTeam" styleClass="styled-select slate"
+						value="#{userProfile.teamId}">
+						<f:selectItem itemLabel="select team" itemValue="no value"></f:selectItem>
+						<f:selectItems value="#{userProfile.systemStartup.teams}"
+							var="team" itemValue="#{team.teamId}"
+							itemLabel="#{team.teamName}" />
+					</h:selectOneMenu>
+
+					<h:outputLabel value="select progress"></h:outputLabel>
+					<rich:inputNumberSlider value="#{userProfile.progress}"
+						maxValue="100" enableManualInput="false" step="10"
+						showArrows="true" showTooltip="false" />
+
+					<h:outputLabel value="brief status update"></h:outputLabel>
+					<h:inputTextarea id="txtareaStatusUpdate"
+						value="#{userProfile.statusUpdate}" rows="7" cols="50"></h:inputTextarea>
+
+					<h:outputLabel value="reporting manager"></h:outputLabel>
+					<h:inputText id="txtReportingMngr"
+						value="#{userProfile.reportingManager}" styleClass="textbox"></h:inputText>
+
+				</h:panelGrid>
+
+				<h:commandButton id="saveprofilebtn"
+					action="#{userProfile.saveUserProfile}" styleClass="btn"
+					value="save user profile"></h:commandButton>
+
+
+				<br />
+				<br />
+
+
+			</h:form>
+		</h:panelGroup>
+
+		<h:panelGroup id="fetchprofilediv" layout="block" >
+			<h:form id="profiledataform" rendered="#{userProfile.selectProfileOption == 2}">
+
+				<h:outputLabel value="search profile filter"></h:outputLabel>
+				<br />
+				<h:outputLabel value="Select the User for profile"></h:outputLabel>
+				<h:selectOneMenu id="selectUsrdropdwn"
+					styleClass="styled-select slate" value="#{userProfile.userId}">
 					<f:selectItems value="#{userProfile.users}" var="currentUser"
 						itemValue="#{currentUser.userId}"
 						itemLabel="#{currentUser.fName} #{currentUser.lName}" />
 				</h:selectOneMenu>
-		<br/>
-		<br/>
-		<h:commandButton id="fetchprofilebtn" action="#{userProfile.fetchProfileData}"  styleClass="btn"
-			value="Fetch user profile"></h:commandButton>
-		
-			<h:dataTable id="profile_grid" var="profile" styleClass="order-table"
-    			headerClass="order-table-header"
-    			rowClasses="order-table-odd-row,order-table-even-row"
-			value="#{userProfile.profiles}">
-				<h:column>
-					<!-- column header -->
-					<f:facet name="header">user Id</f:facet>
-					<!-- row record -->
+				<br />
+				<br />
+				<h:commandButton id="fetchprofilebtn"
+					action="#{userProfile.fetchProfileData}" styleClass="btn"
+					value="Fetch user profile"></h:commandButton>
+
+				<h:dataTable id="profile_grid" var="profile"
+					styleClass="order-table" headerClass="order-table-header"
+					rowClasses="order-table-odd-row,order-table-even-row"
+					value="#{userProfile.profiles}">
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">user Id</f:facet>
+						<!-- row record -->
     				#{profile.userId}
     			</h:column>
-				<h:column>
-					<!-- column header -->
-					<f:facet name="header">project Id</f:facet>
-					<!-- row record -->
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">project Id</f:facet>
+						<!-- row record -->
     				#{profile.projectId}
     			</h:column>
-				<h:column>
-					<!-- column header -->
-					<f:facet name="header">Team Id</f:facet>
-					<!-- row record -->
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">Team Id</f:facet>
+						<!-- row record -->
     				#{profile.teamId}
     			</h:column>
-				<h:column>
-					<!-- column header -->
-					<f:facet name="header">Comments</f:facet>
-					<!-- row record -->
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">Comments</f:facet>
+						<!-- row record -->
     				#{profile.comment}
     			</h:column>
-			</h:dataTable>
-		</h:form>
-		
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">progress</f:facet>
+						<!-- row record -->
+    				#{profile.progress}
+    			</h:column>
+				</h:dataTable>
+			</h:form>
+
+		</h:panelGroup>
+
 	</ui:define>
 </ui:composition>
 </html>
