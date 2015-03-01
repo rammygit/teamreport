@@ -69,19 +69,12 @@
 }
 
 .btn {
-  font-family: verdana;
-  color: #EBEBF0 !important;
-  font-size: 13px;
-  text-shadow: 1px 1px 0px #7CACDE;
+  font-family: 'courier new';
+  color: #FFFFFF !important;
+  font-size: 14px;
+  text-shadow: 1px 1px 0px #6DA3CC;
   box-shadow: 1px 1px 1px #BEE2F9;
   padding: 10px 25px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  border: 2px solid #3866A3;
-  background: #63B8EE;
-}
-.btn:hover {
-  color: #F0EAE6 !important;
-  background: #468CCF;
+  border: 2px solid #6DA3CC;
+  background: #6DA3CC;
 }
