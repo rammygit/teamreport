@@ -12,22 +12,31 @@
 	<ui:composition>
 
 		<h:form id="header_form">
-			
-				<ul id="menu-bar">
-					<li>
-						<h:link outcome="userprofile" value="Profile" />
-					</li>
-				
-					
-					<li><h:link outcome="addProject" value="Project" /></li>
 
-					<li><h:link outcome="addTeam" value="Team" /></li>
-					
-					<li><h:link outcome="riskschallenges" value="Risk - Challenge"/></li>
+			<div id='cssmenu'>
+				<ul>
+					<li class='has-sub'><a href='#'><span>User Profile</span></a>
+						<ul>
+							<li><h:link outcome="userprofile" value="Save Profile" /></li>
+							<li><h:link outcome="searchprofile" value="search Profile" /></li>
+						</ul></li>
+					<li class='has-sub'><a href='#'><span>Project</span></a>
+						<ul>
+							<li><h:link outcome="addProject" value="Save New Project" /></li>
+							<li><h:link outcome="addProject" value="View All Project" /></li>
 
+						</ul></li>
+					<li class='has-sub'><a href='#'><span>Team</span></a>
+						<ul>
+							<li><h:link outcome="addTeam" value="Enter a New Team" /></li>
+							<li><f:ajax render=":include">
+									<h:commandLink value="Home" action="addTeam" />
+								</f:ajax></li>
+						</ul></li>
+					<li class='last'><a href='#'><span>Risks</span></a></li>
 				</ul>
+			</div>
 
-			
 		</h:form>
 
 

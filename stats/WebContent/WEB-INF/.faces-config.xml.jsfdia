@@ -13,6 +13,9 @@
    <PROCESS-ITEM-OUTPUT ID="riskschallenges::#AddUserProfile.xhtml"
     NAME="output3" PATH="/AddUserProfile.xhtml"
     TARGET="rules:#AddUserProfile.xhtml" TITLE="riskschallenges" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="searchprofile::#SearchUserProfile.xhtml"
+    NAME="output4" PATH="/SearchUserProfile.xhtml"
+    TARGET="rules:#SearchUserProfile.xhtml" TITLE="searchprofile" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#AddProject.xhtml" PATH="/AddProject.xhtml"
@@ -21,4 +24,6 @@
   SHAPE="256,33,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#AddUserProfile.xhtml"
   PATH="/AddUserProfile.xhtml" SHAPE="272,321,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#SearchUserProfile.xhtml"
+  PATH="/SearchUserProfile.xhtml" SHAPE="304,497,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

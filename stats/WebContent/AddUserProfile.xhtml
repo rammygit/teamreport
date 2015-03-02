@@ -9,16 +9,9 @@
 
 <ui:composition template="/CommonLayout.xhtml">
 	<ui:define name="content">
-		<h:form id="rdoprofile">
-			<h:selectOneRadio value="#{userProfile.selectProfileOption}">
-				<f:selectItem itemValue="1" itemLabel="Enter profile data" />
-				<f:selectItem itemValue="2" itemLabel="See profile data" />
-				<f:ajax render="saveprofilediv fetchprofilediv" event="click"></f:ajax>
-			</h:selectOneRadio>
-		</h:form>
-		<h:panelGroup id="saveprofilediv" layout="block" >
+		
 
-			<h:form id="saveprofileform" rendered="#{userProfile.selectProfileOption == 1}">
+			<h:form id="saveprofileform">
 
 				<h:panelGrid columns="2">
 					<h:outputLabel value="Select the User"></h:outputLabel>
@@ -73,64 +66,7 @@
 
 
 			</h:form>
-		</h:panelGroup>
-
-		<h:panelGroup id="fetchprofilediv" layout="block" >
-			<h:form id="profiledataform" rendered="#{userProfile.selectProfileOption == 2}">
-				<br/>
-				<br/>
-				
-				<h:outputLabel value="Select the User for profile"></h:outputLabel>
-				<h:selectOneMenu id="selectUsrdropdwn"
-					styleClass="styled-select slate" value="#{userProfile.userId}">
-					<f:selectItems value="#{userProfile.users}" var="currentUser"
-						itemValue="#{currentUser.userId}"
-						itemLabel="#{currentUser.fName} #{currentUser.lName}" />
-				</h:selectOneMenu>
-				<br />
-				<br />
-				<h:commandButton id="fetchprofilebtn"
-					action="#{userProfile.fetchProfileData}" styleClass="btn"
-					value="Fetch user profile"></h:commandButton>
-
-				<h:dataTable id="profile_grid" var="profile"
-					styleClass="order-table" headerClass="order-table-header"
-					rowClasses="order-table-odd-row,order-table-even-row"
-					value="#{userProfile.profiles}">
-					<h:column>
-						<!-- column header -->
-						<f:facet name="header">user Id</f:facet>
-						<!-- row record -->
-    				#{profile.userId}
-    			</h:column>
-					<h:column>
-						<!-- column header -->
-						<f:facet name="header">project Id</f:facet>
-						<!-- row record -->
-    				#{profile.projectId}
-    			</h:column>
-					<h:column>
-						<!-- column header -->
-						<f:facet name="header">Team Id</f:facet>
-						<!-- row record -->
-    				#{profile.teamId}
-    			</h:column>
-					<h:column>
-						<!-- column header -->
-						<f:facet name="header">Comments</f:facet>
-						<!-- row record -->
-    				#{profile.comment}
-    			</h:column>
-					<h:column>
-						<!-- column header -->
-						<f:facet name="header">progress</f:facet>
-						<!-- row record -->
-    				#{profile.progress}
-    			</h:column>
-				</h:dataTable>
-			</h:form>
-
-		</h:panelGroup>
+		
 
 	</ui:define>
 </ui:composition>
