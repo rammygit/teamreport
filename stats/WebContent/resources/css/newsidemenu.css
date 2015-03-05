@@ -1,0 +1,43 @@
+#navigation {
+	font-size: 0.75em;
+	width: 100px;
+}
+
+#navigation ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+#navigation li {
+	list-style: none;
+}
+
+ul.top-level {
+	background: #eeeeee;
+}
+
+ul.top-level li {
+	border-bottom: #fff solid;
+	border-top: #fff solid;
+	border-width: 0px;
+}
+
+#navigation a {
+	color: #000000;
+	cursor: auto;
+	display: block;
+	height: 25px;
+	line-height: 25px;
+	text-indent: 10px;
+	text-decoration: none;
+	width: 100%;
+}
+
+#navigation a:hover {
+	text-decoration: underline;
+}
+
+#navigation li:hover {
+	background: #f90;
+	position: relative;
+}
