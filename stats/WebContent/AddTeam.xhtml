@@ -34,44 +34,7 @@
 			<h:commandButton id="submitTeamAdd" value="Add Team" styleClass="btn"
 				action="#{addDataBean.addTeam}"></h:commandButton>
 
-			<h:commandButton id="submitFetchTeamBtn" value="Display All Teams"
-				styleClass="btn" action="#{addDataBean.fetchTeams}">
-				<f:ajax render="teamdiv"></f:ajax>
-			</h:commandButton>
-
-			<br />
-			<br />
-			<h:panelGroup id="teamdiv" layout="block">
-				<h:dataTable id="team_grid" var="team" value="#{addDataBean.teams}"
-					styleClass="order-table" headerClass="order-table-header"
-					rowClasses="order-table-odd-row,order-table-even-row"
-					rendered="#{!empty addDataBean.teams}">
-					<h:column>
-						<!-- column header -->
-						<f:facet name="header">Team Id</f:facet>
-						<!-- row record -->
-    				#{team.teamId}
-    			</h:column>
-					<h:column>
-						<!-- column header -->
-						<f:facet name="header">Team Name</f:facet>
-						<!-- row record -->
-    				#{team.teamName}
-    			</h:column>
-					<h:column>
-						<!-- column header -->
-						<f:facet name="header">Team Owner</f:facet>
-						<!-- row record -->
-    				#{team.teamOwner}
-    			</h:column>
-					<h:column>
-						<!-- column header -->
-						<f:facet name="header">Active</f:facet>
-						<!-- row record -->
-    				#{team.active}
-    			</h:column>
-				</h:dataTable>
-			</h:panelGroup>
+			
 
 
 

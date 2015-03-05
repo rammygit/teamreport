@@ -16,6 +16,12 @@
    <PROCESS-ITEM-OUTPUT ID="searchprofile::#SearchUserProfile.xhtml"
     NAME="output4" PATH="/SearchUserProfile.xhtml"
     TARGET="rules:#SearchUserProfile.xhtml" TITLE="searchprofile" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="viewTeam::#ViewTeams.xhtml" NAME="output5"
+    PATH="/ViewTeams.xhtml" TARGET="rules:#ViewTeams.xhtml"
+    TITLE="viewTeam" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="viewProject::#ViewProjects.xhtml"
+    NAME="output6" PATH="/ViewProjects.xhtml"
+    TARGET="rules:#ViewProjects.xhtml" TITLE="viewProject" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#AddProject.xhtml" PATH="/AddProject.xhtml"
@@ -26,4 +32,8 @@
   PATH="/AddUserProfile.xhtml" SHAPE="272,321,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#SearchUserProfile.xhtml"
   PATH="/SearchUserProfile.xhtml" SHAPE="304,497,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#ViewTeams.xhtml" PATH="/ViewTeams.xhtml"
+  SHAPE="304,561,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#ViewProjects.xhtml"
+  PATH="/ViewProjects.xhtml" SHAPE="304,561,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

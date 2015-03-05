@@ -27,7 +27,7 @@
 				<h:dataTable id="profile_grid" var="profile"
 					styleClass="order-table" headerClass="order-table-header"
 					rowClasses="order-table-odd-row,order-table-even-row"
-					value="#{userProfile.profiles}">
+					value="#{userProfile.profiles}" rendered="#{!empty userProfile.profiles}">
 					<h:column>
 						<!-- column header -->
 						<f:facet name="header">user Id</f:facet>

@@ -91,6 +91,14 @@
 			<from-outcome>searchprofile</from-outcome>
 			<to-view-id>/SearchUserProfile.xhtml</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>viewTeam</from-outcome>
+			<to-view-id>/ViewTeams.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>viewProject</from-outcome>
+			<to-view-id>/ViewProjects.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
 	<application>
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>

@@ -33,45 +33,7 @@
 			<h:commandButton id="submitTeamAdd" value="Add Project"
 				styleClass="btn" action="#{addDataBean.addProject}"></h:commandButton>
 
-			<h:commandButton id="submitFetchProjectBtn" styleClass="btn"
-				value="Display All Projects" action="#{addDataBean.fetchProjects}">
-				<f:ajax render="projectresultDiv"></f:ajax>
-			</h:commandButton>
-
-			<br />
-			<br />
-			<h:panelGroup id="projectresultDiv" layout="block">
-				<h:dataTable id="project_grid" var="project"
-					styleClass="order-table" rendered="#{!empty addDataBean.projects}"
-					headerClass="order-table-header"
-					rowClasses="order-table-odd-row,order-table-even-row"
-					value="#{addDataBean.projects}">
-					<h:column>
-						<!-- column header -->
-						<f:facet name="header">Project Id</f:facet>
-						<!-- row record -->
-    				#{project.projectId}
-    			</h:column>
-					<h:column>
-						<!-- column header -->
-						<f:facet name="header">Project Name</f:facet>
-						<!-- row record -->
-    				#{project.projectName}
-    			</h:column>
-					<h:column>
-						<!-- column header -->
-						<f:facet name="header">startDate</f:facet>
-						<!-- row record -->
-    				#{project.startDate}
-    			</h:column>
-					<h:column>
-						<!-- column header -->
-						<f:facet name="header">endDate</f:facet>
-						<!-- row record -->
-    				#{project.endDate}
-    			</h:column>
-				</h:dataTable>
-			</h:panelGroup>
+			
 		</h:form>
 	</ui:define>
 </ui:composition>

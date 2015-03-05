@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:composition template="/CommonLayout.xhtml">
+	<ui:define name="content">
+		<h:form id="viewProjectsForms">
+			<h:commandButton id="submitFetchProjectBtn" styleClass="btn"
+				value="Display All Projects" action="#{addDataBean.fetchProjects}">
+				<f:ajax render="projectresultDiv"></f:ajax>
+			</h:commandButton>
+
+			<br />
+			<br />
+			<h:panelGroup id="projectresultDiv" layout="block">
+				<h:dataTable id="project_grid" var="project"
+					styleClass="order-table" rendered="#{!empty addDataBean.projects}"
+					headerClass="order-table-header"
+					rowClasses="order-table-odd-row,order-table-even-row"
+					value="#{addDataBean.projects}">
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">Project Id</f:facet>
+						<!-- row record -->
+    				#{project.projectId}
+    			</h:column>
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">Project Name</f:facet>
+						<!-- row record -->
+    				#{project.projectName}
+    			</h:column>
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">startDate</f:facet>
+						<!-- row record -->
+    				#{project.startDate}
+    			</h:column>
+					<h:column>
+						<!-- column header -->
+						<f:facet name="header">endDate</f:facet>
+						<!-- row record -->
+    				#{project.endDate}
+    			</h:column>
+				</h:dataTable>
+			</h:panelGroup>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
