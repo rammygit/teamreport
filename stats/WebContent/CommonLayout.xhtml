@@ -11,26 +11,46 @@
 	<h:outputStylesheet name="css/content.css" />
 	<h:outputStylesheet name="css/table-style.css" />
 	<h:outputStylesheet name="css/sidemenu.css" />
-	<h:outputScript name="js/jquery-2.1.3.min.js"/>
+	<h:outputStylesheet name="css/newsidemenu.css"/>
+	<h:outputScript name="js/jquery-2.1.3.min.js" />
 	<h:outputScript name="js/side_menu_script.js" />
-	
+
 
 </h:head>
 
 <h:body>
 
-	<div id="wrapper">
-		<div id="header">
-			<p>Welcome to Team Reporting software</p>
-		</div>
-		<div id="leftcolumn">
-			<ui:include src="/Header.xhtml" />
-		</div>
-		<div id="content">
-			<ui:insert name="content">
-			</ui:insert>
-		</div>
+
+	<!-- <div id="header">
+		<p>Welcome to Team Reporting software</p>
 	</div>
+	<div id="nav">
+		<p>side bar</p>
+		<ui:include src="/Header.xhtml" />
+	</div>
+	<div id="section">
+		<ui:insert name="content">
+		</ui:insert>
+	</div>
+	<div id="footer">Copyright © W3Schools.com</div> -->
+
+
+	<div id="header">
+		<p>Welcome to Team Reporting software</p>
+	</div>
+
+	<div id="nav">
+		<ui:include src="/NavigationMenu.xhtml" />
+	</div>
+
+	<div id="section">
+		<ui:insert name="content">
+		</ui:insert>
+	</div>
+
+	<div id="footer">Copyright © rammy.in</div>
+
+
 
 </h:body>
 </html>

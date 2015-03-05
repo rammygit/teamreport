@@ -28,9 +28,11 @@
 						</ul></li>
 					<li class='has-sub'><a href='#'><span>Team</span></a>
 						<ul>
-							<li><h:link outcome="addTeam" value="Enter a New Team" /></li>
 							<li><f:ajax render=":include">
-									<h:commandLink value="Home" action="addTeam" />
+									<h:commandLink value="add a team" action="addTeam" />
+								</f:ajax></li>
+							<li><f:ajax render=":include">
+									<h:commandLink value="show all teams" action="addTeam" />
 								</f:ajax></li>
 						</ul></li>
 					<li class='last'><a href='#'><span>Risks</span></a></li>
