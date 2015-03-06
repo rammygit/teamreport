@@ -44,6 +44,10 @@ public class UserProfile extends AppBaseBean {
 	
 	private String selectProfileOption;
 	
+	private String workType;
+	
+	private String workTypeNumber;
+	
 	
 	@PostConstruct
 	public void loadData(){
@@ -63,6 +67,8 @@ public class UserProfile extends AppBaseBean {
 		profile.setComment(statusUpdate);
 		profile.setProgress(progress);
 		profile.setReportingManager(reportingManager);
+		profile.setWorkType(workType);
+		profile.setWorkTypeNumber(workTypeNumber);
 		boolean saved = userDao.saveProfileData(profile);
 		if (saved) {
 			setMessage("profile data is saved successfully");
@@ -186,6 +192,22 @@ public class UserProfile extends AppBaseBean {
 
 	public void setSelectProfileOption(String selectProfileOption) {
 		this.selectProfileOption = selectProfileOption;
+	}
+
+	public String getWorkType() {
+		return workType;
+	}
+
+	public void setWorkType(String workType) {
+		this.workType = workType;
+	}
+
+	public String getWorkTypeNumber() {
+		return workTypeNumber;
+	}
+
+	public void setWorkTypeNumber(String workTypeNumber) {
+		this.workTypeNumber = workTypeNumber;
 	}
 
 }

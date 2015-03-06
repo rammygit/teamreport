@@ -94,12 +94,13 @@ public class UserDao extends BaseDao {
 	 */
 	public boolean saveProfileData(Profile profile){
 		String sql = "insert into user_profile " +
-				"(userId,teamId,projectId,reporting_manager,comment,progress) VALUES (?,?,?,?,?,?)";
+				"(userId,teamId,projectId,reporting_manager,comment,progress,worktype,work_type_number) VALUES (?,?,?,?,?,?,?,?)";
 		int rowsInserted = 0;
 
 
 		rowsInserted = jdbcTemplate.update(sql, new Object[] { profile.getUserId(),profile.getTeamId(),profile.getProjectId(),
-				profile.getReportingManager(),profile.getComment(),profile.getProgress() 
+				profile.getReportingManager(),profile.getComment(),profile.getProgress(),
+				profile.getWorkType(),profile.getWorkTypeNumber()
 		});
 		
 		return (rowsInserted > 0) ? true : false;

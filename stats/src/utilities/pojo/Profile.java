@@ -23,6 +23,10 @@ public class Profile implements Serializable {
 	private String comment;
 	
 	private String reportingManager;
+	
+	private String workType;
+	
+	private String workTypeNumber;
 
 	public String getUserId() {
 		return userId;
@@ -70,6 +74,22 @@ public class Profile implements Serializable {
 
 	public void setReportingManager(String reportingManager) {
 		this.reportingManager = reportingManager;
+	}
+
+	public String getWorkType() {
+		return workType;
+	}
+
+	public void setWorkType(String workType) {
+		this.workType = workType;
+	}
+
+	public String getWorkTypeNumber() {
+		return workTypeNumber;
+	}
+
+	public void setWorkTypeNumber(String workTypeNumber) {
+		this.workTypeNumber = workTypeNumber;
 	}
 	
 	

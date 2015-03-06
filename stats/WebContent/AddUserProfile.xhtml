@@ -9,64 +9,71 @@
 
 <ui:composition template="/CommonLayout.xhtml">
 	<ui:define name="content">
-		
-
-			<h:form id="saveprofileform">
-
-				<h:panelGrid columns="2">
-					<h:outputLabel value="Select the User"></h:outputLabel>
-					<h:selectOneMenu id="selectUsrMenu"
-						styleClass="styled-select slate" value="#{userProfile.userId}">
-						<f:selectItem itemLabel="select user" itemValue="no value"></f:selectItem>
-						<f:selectItems value="#{userProfile.users}" var="currentUser"
-							itemValue="#{currentUser.userId}"
-							itemLabel="#{currentUser.fName} #{currentUser.lName}" />
-					</h:selectOneMenu>
-
-					<h:outputLabel value="select project"></h:outputLabel>
-					<h:selectOneMenu id="selectproj" styleClass="styled-select slate"
-						value="#{userProfile.projectId}">
-						<f:selectItem itemLabel="select project" itemValue="no value"></f:selectItem>
-						<f:selectItems value="#{userProfile.systemStartup.projects}"
-							var="project" itemValue="#{project.projectId}"
-							itemLabel="#{project.projectName}" />
-					</h:selectOneMenu>
-
-					<h:outputLabel value="select team"></h:outputLabel>
-					<h:selectOneMenu id="selectTeam" styleClass="styled-select slate"
-						value="#{userProfile.teamId}">
-						<f:selectItem itemLabel="select team" itemValue="no value"></f:selectItem>
-						<f:selectItems value="#{userProfile.systemStartup.teams}"
-							var="team" itemValue="#{team.teamId}"
-							itemLabel="#{team.teamName}" />
-					</h:selectOneMenu>
-
-					<h:outputLabel value="select progress"></h:outputLabel>
-					<rich:inputNumberSlider value="#{userProfile.progress}"
-						maxValue="100" enableManualInput="false" step="10"
-						showArrows="true" showTooltip="false" />
-
-					<h:outputLabel value="brief status update"></h:outputLabel>
-					<h:inputTextarea id="txtareaStatusUpdate"
-						value="#{userProfile.statusUpdate}" rows="7" cols="50"></h:inputTextarea>
-
-					<h:outputLabel value="reporting manager"></h:outputLabel>
-					<h:inputText id="txtReportingMngr"
-						value="#{userProfile.reportingManager}" styleClass="textbox"></h:inputText>
-
-				</h:panelGrid>
-
-				<h:commandButton id="saveprofilebtn"
-					action="#{userProfile.saveUserProfile}" styleClass="btn"
-					value="save user profile"></h:commandButton>
 
 
-				<br />
-				<br />
+		<h:form id="saveprofileform">
+
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Select the User"></h:outputLabel>
+				<h:selectOneMenu id="selectUsrMenu" styleClass="styled-select slate"
+					value="#{userProfile.userId}">
+					<f:selectItem itemLabel="select user" itemValue="no value"></f:selectItem>
+					<f:selectItems value="#{userProfile.users}" var="currentUser"
+						itemValue="#{currentUser.userId}"
+						itemLabel="#{currentUser.fName} #{currentUser.lName}" />
+				</h:selectOneMenu>
+
+				<h:outputLabel value="select project"></h:outputLabel>
+				<h:selectOneMenu id="selectproj" styleClass="styled-select slate"
+					value="#{userProfile.projectId}">
+					<f:selectItem itemLabel="select project" itemValue="no value"></f:selectItem>
+					<f:selectItems value="#{userProfile.systemStartup.projects}"
+						var="project" itemValue="#{project.projectId}"
+						itemLabel="#{project.projectName}" />
+				</h:selectOneMenu>
+
+				<h:outputLabel value="select team"></h:outputLabel>
+				<h:selectOneMenu id="selectTeam" styleClass="styled-select slate"
+					value="#{userProfile.teamId}">
+					<f:selectItem itemLabel="select team" itemValue="no value"></f:selectItem>
+					<f:selectItems value="#{userProfile.systemStartup.teams}"
+						var="team" itemValue="#{team.teamId}" itemLabel="#{team.teamName}" />
+				</h:selectOneMenu>
+				<h:outputLabel value="what's your work type"></h:outputLabel>
+				<h:selectOneRadio id="rdoworktype" value="#{userProfile.workType}">
+					<f:selectItem itemValue="project" itemLabel="project"></f:selectItem>
+					<f:selectItem itemValue="incident" itemLabel="incident"></f:selectItem>
+					<f:selectItem itemValue="defect" itemLabel="defect"></f:selectItem>
+					<f:selectItem itemValue="Misc" itemLabel="Misc"></f:selectItem>
+				</h:selectOneRadio>
+				<h:outputLabel value="work type number"></h:outputLabel>
+				<h:inputText id="txtworktypeNumber" value="#{userProfile.workTypeNumber}"></h:inputText>
+				<h:outputLabel value="select progress"></h:outputLabel>
+				<rich:inputNumberSlider value="#{userProfile.progress}"
+					maxValue="100" enableManualInput="false" step="10"
+					showArrows="true" showTooltip="false" />
+
+				<h:outputLabel value="brief status update"></h:outputLabel>
+				<h:inputTextarea id="txtareaStatusUpdate"
+					value="#{userProfile.statusUpdate}" rows="7" cols="50"></h:inputTextarea>
+
+				<h:outputLabel value="reporting manager"></h:outputLabel>
+				<h:inputText id="txtReportingMngr"
+					value="#{userProfile.reportingManager}" styleClass="textbox"></h:inputText>
+
+			</h:panelGrid>
+
+			<h:commandButton id="saveprofilebtn"
+				action="#{userProfile.saveUserProfile}" styleClass="btn"
+				value="save user profile"></h:commandButton>
 
 
-			</h:form>
-		
+			<br />
+			<br />
+
+
+		</h:form>
+
 
 	</ui:define>
 </ui:composition>
