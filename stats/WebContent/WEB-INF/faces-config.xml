@@ -99,6 +99,10 @@
 			<from-outcome>viewProject</from-outcome>
 			<to-view-id>/ViewProjects.xhtml</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>addUser</from-outcome>
+			<to-view-id>/AddUser.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
 	<application>
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>

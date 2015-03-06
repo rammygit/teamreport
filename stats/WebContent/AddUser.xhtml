@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="/CommonLayout.xhtml">
+	<ui:define name="content">
+		<h:form id="adduserform">
+			<h:panelGrid columns="3">
+				<h:outputText value="enter user first name"></h:outputText>
+				<h:inputText id="txtuserfName" value="#{addDataBean.user.fName}"
+					styleClass="textbox" required="true"
+					requiredMessage="please enter the first name"></h:inputText>
+				<h:message for="txtuserfName" style="color:red"></h:message>
+				<h:outputText value="enter team owner"></h:outputText>
+				<h:inputText id="txtuserlname" value="#{addDataBean.user.lName}"
+					styleClass="textbox" required="true"
+					requiredMessage="please enter the team owner name" />
+				<h:message for="txtuserlname" style="color:red"></h:message>
+				<h:outputText value="select user role"></h:outputText>
+				<h:selectOneMenu id="selectuserrole"
+					value="#{addDataBean.user.role}">
+					<f:selectItem itemValue="" itemLabel="select role"></f:selectItem>
+					<f:selectItem itemValue="developer" itemLabel="developer"></f:selectItem>
+					<f:selectItem itemValue="devlead" itemLabel="DevLead"></f:selectItem>
+					<f:selectItem itemValue="manager" itemLabel="manager"></f:selectItem>
+					<f:selectItem itemValue="DBA" itemLabel="DBA"></f:selectItem>
+					<f:selectItem itemValue="SqlDeveloper" itemLabel="SqlDeveloper"></f:selectItem>
+				</h:selectOneMenu>
+				<h:message for="selectuserrole" style="color:red"></h:message>
+
+			</h:panelGrid>
+
+			<h:commandButton id="saveUserBtn" value="save user"
+				action="#{addDataBean.addUser}"></h:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

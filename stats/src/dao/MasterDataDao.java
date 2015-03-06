@@ -6,6 +6,7 @@ import java.util.Map;
 
 import utilities.pojo.Project;
 import utilities.pojo.Team;
+import utilities.pojo.User;
 
 public class MasterDataDao extends BaseDao {
 
@@ -15,7 +16,10 @@ public class MasterDataDao extends BaseDao {
 		return null;
 	}
 
-	
+	/**
+	 * 
+	 * @param team
+	 */
 	public void save(Team team){
 		String query = "insert into team (team_name, team_owner,active) values (?,?,?)";
 		Object[] args = new Object[] {team.getTeamName(), team.getTeamOwner(),team.getActive()};
@@ -27,6 +31,10 @@ public class MasterDataDao extends BaseDao {
         }else System.out.println("team data save failed with id");
 	}
 	
+	/**
+	 * 
+	 * @param project
+	 */
 	public void save(Project project){
 		String query = "insert into projects (project_name, start_date,end_date) values (?,?,?)";
 		Object[] args = new Object[] {project.getProjectName(),project.getStartDate(),project.getEndDate()};
@@ -34,8 +42,23 @@ public class MasterDataDao extends BaseDao {
         int out = jdbcTemplate.update(query, args);
          
         if(out !=0){
-            System.out.println("team data saved with id="+project.getProjectId());
-        }else System.out.println("team data save failed with id");
+            System.out.println("project data saved with id="+project.getProjectId());
+        }else System.out.println("project data save failed with id");
+	}
+	
+	/**
+	 * saving user data
+	 * @param user
+	 */
+	public void save(User user) throws Exception {
+		String query = "insert into users (fname, lname,role) values (?,?,?)";
+		Object[] args = new Object[] {user.getfName(),user.getlName(),user.getRole()};
+        
+        int out = jdbcTemplate.update(query, args);
+         
+        if(out !=0){
+            System.out.println("user data saved with id="+user.getUserId());
+        }else System.out.println("user data save failed with id");
 	}
 	
 	/**

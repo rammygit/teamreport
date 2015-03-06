@@ -65,9 +65,11 @@ public class UserProfile extends AppBaseBean {
 		profile.setReportingManager(reportingManager);
 		boolean saved = userDao.saveProfileData(profile);
 		if (saved) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("profile data is saved successfully","profile data saved successfully"));
+			setMessage("profile data is saved successfully");
+			
 		} else {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("profile data is saved successfully","profile data saved successfully"));
+			setMessage("saving profile data failed!!");
+			
 		}
 		
 		return null;

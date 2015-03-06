@@ -22,6 +22,8 @@
    <PROCESS-ITEM-OUTPUT ID="viewProject::#ViewProjects.xhtml"
     NAME="output6" PATH="/ViewProjects.xhtml"
     TARGET="rules:#ViewProjects.xhtml" TITLE="viewProject" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="addUser::#AddUser.xhtml" NAME="output7"
+    PATH="/AddUser.xhtml" TARGET="rules:#AddUser.xhtml" TITLE="addUser" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#AddProject.xhtml" PATH="/AddProject.xhtml"
@@ -36,4 +38,6 @@
   SHAPE="304,561,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#ViewProjects.xhtml"
   PATH="/ViewProjects.xhtml" SHAPE="304,561,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#AddUser.xhtml" PATH="/AddUser.xhtml"
+  SHAPE="304,593,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>
