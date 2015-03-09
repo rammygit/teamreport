@@ -4,6 +4,7 @@ package service;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
+import java.util.Map;
 
 import javax.imageio.ImageIO;
 
@@ -21,15 +22,49 @@ import dao.UserDao;
  *
  */
 public class ChartService {
-	
-	private UserDao userDao;
-	
-	
-	
-	
 
+	private UserDao userDao;
+
+
+
+
+
+	/**
+	 * demo method with hardcoded values
+	 * @param out
+	 * @return
+	 * @throws Exception
+	 */
 	public static OutputStream createPieChart(OutputStream out) throws Exception{
-		String imageMap = null;
+
+		DefaultPieDataset pieDataset = new DefaultPieDataset();
+		pieDataset.setValue("Project", new Integer(3));
+		pieDataset.setValue("Defects", new Integer(10));
+		pieDataset.setValue("Incident", new Integer(3));
+		pieDataset.setValue("Misc", new Integer(5));
+		JFreeChart chart = ChartFactory.createPieChart
+				("work type Distribution", // Title
+						pieDataset, // Dataset
+						true, // Show legend
+						true, // Use tooltips
+						false // Configure chart to generate URLs?
+						);
+
+		BufferedImage bufferedImage = chart.createBufferedImage(300, 300);
+		ImageIO.write(bufferedImage, "gif", out);
+
+		return out;
+	}
+
+	/**
+	 * 
+	 * @param out
+	 * @param dataMap
+	 * @return
+	 * @throws Exception
+	 */
+	public static OutputStream createPieChart(OutputStream out,Map<String,Number> dataMap) throws Exception{
+
 		DefaultPieDataset pieDataset = new DefaultPieDataset();
 		pieDataset.setValue("A", new Integer(75));
 		pieDataset.setValue("B", new Integer(10));
@@ -43,17 +78,9 @@ public class ChartService {
 						false // Configure chart to generate URLs?
 						);
 
-//		ChartRenderingInfo info = new ChartRenderingInfo(
-//	            new StandardEntityCollection());
-		
-		//ByteArrayOutputStream out = new ByteArrayOutputStream();
-        //ChartUtilities.writeChartAsPNG(out, chart, 600, 400, info);		
-        //imageMap =  ChartUtilities.getImageMap("chart", info);
-		//out.close();
-		
 		BufferedImage bufferedImage = chart.createBufferedImage(300, 300);
-	    ImageIO.write(bufferedImage, "gif", out);
-		
+		ImageIO.write(bufferedImage, "gif", out);
+
 		return out;
 	}
 
@@ -65,6 +92,6 @@ public class ChartService {
 		this.userDao = userDao;
 	}
 
-	
+
 
 }
