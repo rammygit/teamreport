@@ -1,15 +1,18 @@
 package beans;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.sql.SQLException;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
+import javax.faces.event.AjaxBehaviorEvent;
 
-import dao.UserDao;
+import service.ChartService;
 import utilities.pojo.Profile;
 import utilities.pojo.User;
+import dao.UserDao;
 
 /**
  * read users session bean. 
@@ -30,7 +33,7 @@ public class UserProfile extends AppBaseBean {
 	
 	private String userId;
 	
-	private String projectId;
+	private String projectId="no value";
 	
 	private String teamId;
 	
@@ -44,9 +47,11 @@ public class UserProfile extends AppBaseBean {
 	
 	private String selectProfileOption;
 	
-	private String workType;
+	private String workType = null;
 	
 	private String workTypeNumber;
+	
+	private String imageMap;
 	
 	
 	@PostConstruct
@@ -96,6 +101,21 @@ public class UserProfile extends AppBaseBean {
 		return null;
 	}
 	
+	
+	public void selectListener(AjaxBehaviorEvent ajaxBehaviorEvent){
+		System.out.println("radio listener...."+workType);
+	}
+	
+	
+	public void drawChart(OutputStream out, Object data) throws IOException {
+		try {
+			out = ChartService.createPieChart(out);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+	  }
+	
 
 	public UserDao getUserDao() {
 		return userDao;
@@ -112,9 +132,7 @@ public class UserProfile extends AppBaseBean {
 
 	public void setUsers(List<User> users) {
 		this.users = users;
-	}
-
-	
+	}	
 
 	public String getUserId() {
 		return userId;
@@ -208,6 +226,14 @@ public class UserProfile extends AppBaseBean {
 
 	public void setWorkTypeNumber(String workTypeNumber) {
 		this.workTypeNumber = workTypeNumber;
+	}
+
+	public String getImageMap() {
+		return imageMap;
+	}
+
+	public void setImageMap(String imageMap) {
+		this.imageMap = imageMap;
 	}
 
 }
