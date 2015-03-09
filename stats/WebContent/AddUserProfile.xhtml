@@ -23,14 +23,35 @@
 						itemLabel="#{currentUser.fName} #{currentUser.lName}" />
 				</h:selectOneMenu>
 
-				<h:outputLabel value="select project"></h:outputLabel>
-				<h:selectOneMenu id="selectproj" styleClass="styled-select slate"
-					value="#{userProfile.projectId}">
-					<f:selectItem itemLabel="select project" itemValue="no value"></f:selectItem>
-					<f:selectItems value="#{userProfile.systemStartup.projects}"
-						var="project" itemValue="#{project.projectId}"
-						itemLabel="#{project.projectName}" />
-				</h:selectOneMenu>
+				<h:outputLabel value="what's your work type"></h:outputLabel>
+				<h:selectOneRadio id="rdoworktype" value="#{userProfile.workType}"
+					layout="pageDirection">
+					<f:selectItem itemValue="project" itemLabel="project"></f:selectItem>
+					<f:selectItem itemValue="incident" itemLabel="incident"></f:selectItem>
+					<f:selectItem itemValue="defect" itemLabel="defect"></f:selectItem>
+					<f:selectItem itemValue="Misc" itemLabel="Misc"></f:selectItem>
+					<f:ajax execute="@all" render="selectInputPanel lblgroup"></f:ajax>
+				</h:selectOneRadio>
+
+				<h:outputLabel value="work type number"></h:outputLabel>
+				<h:inputText id="txtworktypeNumber"
+					value="#{userProfile.workTypeNumber}" styleClass="textbox"></h:inputText>
+
+				<h:panelGroup id="lblgroup" >
+					<h:outputLabel value="select project" rendered="#{userProfile.workType == 'project'}"/>
+				</h:panelGroup>
+				
+				<h:panelGroup id="selectInputPanel" >					
+					<h:selectOneMenu id="selectproj" styleClass="styled-select slate" rendered="#{userProfile.workType == 'project'}"					
+						value="#{userProfile.projectId}">
+						<f:selectItem itemLabel="select project" itemValue="no value"></f:selectItem>
+						<f:selectItems value="#{userProfile.systemStartup.projects}"
+							var="project" itemValue="#{project.projectId}"
+							itemLabel="#{project.projectName}" />
+					</h:selectOneMenu>
+				</h:panelGroup>
+				
+
 
 				<h:outputLabel value="select team"></h:outputLabel>
 				<h:selectOneMenu id="selectTeam" styleClass="styled-select slate"
@@ -39,15 +60,7 @@
 					<f:selectItems value="#{userProfile.systemStartup.teams}"
 						var="team" itemValue="#{team.teamId}" itemLabel="#{team.teamName}" />
 				</h:selectOneMenu>
-				<h:outputLabel value="what's your work type"></h:outputLabel>
-				<h:selectOneRadio id="rdoworktype" value="#{userProfile.workType}">
-					<f:selectItem itemValue="project" itemLabel="project"></f:selectItem>
-					<f:selectItem itemValue="incident" itemLabel="incident"></f:selectItem>
-					<f:selectItem itemValue="defect" itemLabel="defect"></f:selectItem>
-					<f:selectItem itemValue="Misc" itemLabel="Misc"></f:selectItem>
-				</h:selectOneRadio>
-				<h:outputLabel value="work type number"></h:outputLabel>
-				<h:inputText id="txtworktypeNumber" value="#{userProfile.workTypeNumber}"></h:inputText>
+
 				<h:outputLabel value="select progress"></h:outputLabel>
 				<rich:inputNumberSlider value="#{userProfile.progress}"
 					maxValue="100" enableManualInput="false" step="10"
