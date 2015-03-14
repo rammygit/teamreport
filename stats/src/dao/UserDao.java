@@ -71,7 +71,12 @@ public class UserDao extends BaseDao {
 	
 	
 	
-		
+	/**
+	 * 	
+	 * @param userId
+	 * @return
+	 * @throws SQLException
+	 */
 	public List<Profile> fetchUserProfileData(Integer userId) throws SQLException{
 		System.out.println("printing user id : "+userId);
 		String sql = "select * from user_profile where userId = ?";
@@ -104,6 +109,24 @@ public class UserDao extends BaseDao {
 		});
 		
 		return (rowsInserted > 0) ? true : false;
+	}
+	
+	/**
+	 * 
+	 */
+	public List<Profile> getWorkTypeDataForUser(Integer userId) throws Exception {
+		String sql = "select worktype,count(*) as count from user_profile where userId = ? GROUP BY worktype";
+		return this.jdbcTemplate.query(
+		        sql,
+		        new Object[]{userId},
+		        new RowMapper<Profile>() {
+		            public Profile mapRow(ResultSet rs, int rowNum) throws SQLException {
+		            	Profile profile = new Profile();
+		            	profile.setWorkType(rs.getString("worktype"));
+		            	profile.setDataCount(rs.getInt("count"));
+		                return profile;
+		            }
+		        });
 	}
 
 	

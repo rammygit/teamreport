@@ -23,21 +23,28 @@
 			<value>#{project}</value>
 		</managed-property>
 	</managed-bean>
-	
+
+
+	<managed-bean>
+		<managed-bean-name>sample</managed-bean-name>
+		<managed-bean-class>beans.SampleBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
 	<!-- team bean -->
 	<managed-bean>
 		<managed-bean-name>team</managed-bean-name>
 		<managed-bean-class>utilities.pojo.Team</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
-	
+
 	<!-- project bean -->
 	<managed-bean>
 		<managed-bean-name>project</managed-bean-name>
 		<managed-bean-class>utilities.pojo.Project</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
-	
+
 	<!-- system startup bean -->
 	<managed-bean>
 		<managed-bean-name>systemStartup</managed-bean-name>
@@ -49,7 +56,7 @@
 			<value>#{masterDataDao}</value>
 		</managed-property>
 	</managed-bean>
-	
+
 	<!-- user profile bean -->
 	<managed-bean>
 		<managed-bean-name>userProfile</managed-bean-name>
@@ -66,8 +73,8 @@
 			<value>#{systemStartup}</value>
 		</managed-property>
 	</managed-bean>
-	
-	
+
+
 	<!-- navigation rules -->
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
@@ -103,8 +110,15 @@
 			<from-outcome>addUser</from-outcome>
 			<to-view-id>/AddUser.xhtml</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>viewChart</from-outcome>
+			<to-view-id>/ViewChart.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
 	<application>
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
 	</application>
+	<!-- <lifecycle>
+		<phase-listener>beans.SamplePhaseListener</phase-listener>
+	</lifecycle> -->
 </faces-config>

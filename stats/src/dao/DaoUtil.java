@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.Map;
 
 import beans.UserProfile;
-import utilities.converters.StringUtil;
+import utilities.converters.ObjectConverter;
 import utilities.pojo.Profile;
 import utilities.pojo.Project;
 import utilities.pojo.Team;
@@ -82,12 +82,12 @@ public class DaoUtil implements Serializable {
 	 */
 	public static Profile profileRowMapper(Map<String, Object> row) {
 		Profile profile = new Profile();
-		profile.setUserId(StringUtil.toString(row.get("userId")));
-		profile.setTeamId(StringUtil.toString(row.get("teamId")));
-		profile.setProjectId(StringUtil.toString(row.get("projectId")));
-		profile.setComment(StringUtil.toString(row.get("comment")));
-		profile.setReportingManager(StringUtil.toString(row.get("reporting_manager")));
-		profile.setProgress(StringUtil.toString(row.get("progress")));
+		profile.setUserId(ObjectConverter.toString(row.get("userId")));
+		profile.setTeamId(ObjectConverter.toString(row.get("teamId")));
+		profile.setProjectId(ObjectConverter.toString(row.get("projectId")));
+		profile.setComment(ObjectConverter.toString(row.get("comment")));
+		profile.setReportingManager(ObjectConverter.toString(row.get("reporting_manager")));
+		profile.setProgress(ObjectConverter.toString(row.get("progress")));
 		return profile;
 	}
 

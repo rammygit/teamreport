@@ -8,13 +8,7 @@
 <ui:composition template="/CommonLayout.xhtml">
 	<ui:define name="content">
 		<h:form id="viewProjectsForms">
-			<h:commandButton id="submitFetchProjectBtn" styleClass="btn"
-				value="Display All Projects" action="#{addDataBean.fetchProjects}">
-				<f:ajax render="projectresultDiv"></f:ajax>
-			</h:commandButton>
-
-			<br />
-			<br />
+			
 			<h:panelGroup id="projectresultDiv" layout="block">
 				<h:dataTable id="project_grid" var="project"
 					styleClass="order-table" rendered="#{!empty addDataBean.projects}"

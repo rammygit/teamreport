@@ -6,19 +6,20 @@
 	xmlns:rich="http://richfaces.org/rich"
 	xmlns:a4j="http://richfaces.org/a4j">
 
-<ui:composition>
+<ui:composition template="/CommonLayout.xhtml">
+	<ui:define name="content">
+		<h:form id="chartForm">
+			
+			
 
-	<h:form>
-
-		
-		<rich:panel>
-			<a4j:mediaOutput style="width:200px;height:200px;" element="img"
-				cacheable="false" session="true"
-				createContent="#{userProfile.drawChart}" mimeType="image/gif" />
-		</rich:panel>
+			<rich:panel id="chartpnl">
+				<a4j:mediaOutput id="chartMedia" style="width:200px;height:200px;"
+					element="img" cacheable="false" session="true"
+					createContent="#{userProfile.drawChart}" mimeType="image/gif" />
+			</rich:panel>
 
 
-	</h:form>
-
+		</h:form>
+	</ui:define>
 </ui:composition>
 </html>

@@ -7,11 +7,7 @@
 <ui:composition template="/CommonLayout.xhtml">
 	<ui:define name="content">
 		<h:form id="viewTeamForm">
-			<h:commandButton id="submitFetchTeamBtn" value="Display All Teams"
-				styleClass="btn" action="#{addDataBean.fetchTeams}">
-				<f:ajax render="teamdiv"></f:ajax>
-			</h:commandButton>
-
+			
 			<br />
 			<br />
 			<h:panelGroup id="teamdiv" layout="block">

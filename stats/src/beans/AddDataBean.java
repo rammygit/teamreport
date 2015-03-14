@@ -72,7 +72,7 @@ public class AddDataBean extends AppBaseBean{
 	 */
 	public String fetchProjects(){
 		projects = masterDataDao.fetchAllProjects();
-		return null;
+		return "viewProject";
 	}
 	
 	/**
@@ -81,7 +81,7 @@ public class AddDataBean extends AppBaseBean{
 	 */
 	public String fetchTeams(){
 		teams = masterDataDao.fetchAllTeams();
-		return null;
+		return "viewTeam";
 	}
 	
 	/**

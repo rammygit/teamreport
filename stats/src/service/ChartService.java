@@ -2,16 +2,13 @@ package service;
 
 
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
 
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartRenderingInfo;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.entity.StandardEntityCollection;
 import org.jfree.data.general.DefaultPieDataset;
 
 import dao.UserDao;
@@ -55,6 +52,19 @@ public class ChartService {
 
 		return out;
 	}
+	
+	/**
+	 * 
+	 * @param dataMap
+	 * @return
+	 */
+	public static DefaultPieDataset createDataSet(Map<String,Integer> dataMap){
+		DefaultPieDataset pieDataset = new DefaultPieDataset();
+		for(Map.Entry<String, Integer> data : dataMap.entrySet()){
+			pieDataset.setValue(data.getKey(), data.getValue());
+		}
+		return pieDataset;
+	}
 
 	/**
 	 * 
@@ -63,16 +73,12 @@ public class ChartService {
 	 * @return
 	 * @throws Exception
 	 */
-	public static OutputStream createPieChart(OutputStream out,Map<String,Number> dataMap) throws Exception{
+	public static OutputStream createPieChart(OutputStream out,Map<String,Integer> dataMap,String chartTitle) throws Exception{
 
-		DefaultPieDataset pieDataset = new DefaultPieDataset();
-		pieDataset.setValue("A", new Integer(75));
-		pieDataset.setValue("B", new Integer(10));
-		pieDataset.setValue("C", new Integer(10));
-		pieDataset.setValue("D", new Integer(5));
+		
 		JFreeChart chart = ChartFactory.createPieChart
-				("CSC408 Mark Distribution", // Title
-						pieDataset, // Dataset
+				(chartTitle, // Title
+						createDataSet(dataMap), // Dataset
 						true, // Show legend
 						true, // Use tooltips
 						false // Configure chart to generate URLs?

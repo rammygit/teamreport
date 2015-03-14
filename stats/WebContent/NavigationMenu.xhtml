@@ -14,10 +14,16 @@
 				<li><h:link outcome="addUser" value="Add User" /></li>
 				<li class="sideheader">Project</li>
 				<li><h:link outcome="addProject" value="New Project" /></li>
-				<li><h:link outcome="viewProject" value="View Projects" /></li>
+				<li><h:commandLink id="viewprojbtn" value="Display All Projects" action="#{addDataBean.fetchProjects}"/></li>
 				<li class="sideheader">Team</li>
 				<li><h:link outcome="addTeam" value="New Team" /></li>
-				<li><h:link outcome="viewTeam" value="View Teams" /></li>
+				<li><h:commandLink id="viewteamjbtn" value="Display All Teams" action="#{addDataBean.fetchTeams}"/></li>
+				<li class="sideheader">Reports</li>
+				<li><h:link outcome="viewChart" value="View Charts" /></li>
+				<li><h:commandLink id="chartLink" value="View Chart Link" action="viewChart">
+					<f:ajax execute="@this" render="chartMedia"></f:ajax>
+				</h:commandLink></li>
+				
 			</ul>
 		</div>
 	</h:form>

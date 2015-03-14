@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @author ramkumarsundarajan
  *
  */
-public class Profile implements Serializable {
+public class Profile  extends BaseEntity  {
 
 	
 	private static final long serialVersionUID = 1L;
@@ -27,6 +27,8 @@ public class Profile implements Serializable {
 	private String workType;
 	
 	private String workTypeNumber;
+	
+	
 
 	public String getUserId() {
 		return userId;

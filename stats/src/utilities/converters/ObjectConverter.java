@@ -5,12 +5,12 @@ package utilities.converters;
  * @author ramkumarsundarajan
  *
  */
-public class StringUtil {
+public class ObjectConverter {
 	
 	/**
 	 * private constructor to prevent from initialization.
 	 */
-	private StringUtil(){
+	private ObjectConverter(){
 		
 	}
 	
@@ -26,9 +26,26 @@ public class StringUtil {
 		return null;
 	}
 	
+	/**
+	 * 
+	 * @param value
+	 * @return
+	 */
 	public static String toString(Object value){
 		if(value!=null)
 			return String.valueOf(value);
+		return null;
+	}
+	
+	/**
+	 * 
+	 * @param value
+	 * @return
+	 */
+	public static Integer toInteger(String value) {
+		if(value!=null)
+			return Integer.valueOf(value);
+		
 		return null;
 	}
 

@@ -1,15 +1,16 @@
 package beans;
 
-import java.io.IOException;
 import java.io.OutputStream;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
-import javax.faces.event.ActionEvent;
 import javax.faces.event.AjaxBehaviorEvent;
 
 import service.ChartService;
+import utilities.converters.ObjectConverter;
 import utilities.pojo.Profile;
 import utilities.pojo.User;
 import dao.UserDao;
@@ -107,14 +108,22 @@ public class UserProfile extends AppBaseBean {
 	}
 	
 	
-	public void drawChart(OutputStream out, Object data) throws IOException {
-		try {
-			out = ChartService.createPieChart(out);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-	  }
+	/**
+	 * 
+	 * @param out
+	 * @param data
+	 * @throws Exception
+	 */
+	public void drawChart(OutputStream out, Object data) throws Exception {
+		List<Profile> profiles = userDao.getWorkTypeDataForUser(ObjectConverter.toInteger("1"));
+		Map<String,Integer> dataMap = new HashMap<String, Integer>();
+		for(Profile profile:profiles){
+			dataMap.put(profile.getWorkType(), profile.getDataCount());
+		}
+
+		out = ChartService.createPieChart(out,dataMap,"worktype distribution for selected userid: 1");
+
+	}
 	
 
 	public UserDao getUserDao() {
