@@ -27,7 +27,8 @@ public class ChartService {
 
 
 	/**
-	 * demo method with hardcoded values
+	 * demo method with hardcoded values.*** not used for display ****
+	 * **** TEST METHOD *****
 	 * @param out
 	 * @return
 	 * @throws Exception
